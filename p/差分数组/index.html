@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="差分数组 什么是差分数组？ 差分数组是一个和原数组大小的数组，存储的是相邻数组的差值。\n具体来说：\n给定一个原数组 arr，其长度为 n。 我们可以构建一个差分数组 diff，其长度也为 n。 差分数组的元素定义如下： diff[0] = arr[0] （第一个元素没有前一个元素，所以它就是原数组的第一个值） diff[i] = arr[i] - arr[i-1] （对于 i 从 1 到 n-1） 一个简单的例子 假设我们有原数组： arr = [8, 2, 6, 3, 1]\n">
+<title>差分数组</title>
+
+<link rel='canonical' href='https://lidiudiudiu.github.io/p/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/'>
+
+<link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="差分数组">
+<meta property='og:description' content="差分数组 什么是差分数组？ 差分数组是一个和原数组大小的数组，存储的是相邻数组的差值。\n具体来说：\n给定一个原数组 arr，其长度为 n。 我们可以构建一个差分数组 diff，其长度也为 n。 差分数组的元素定义如下： diff[0] = arr[0] （第一个元素没有前一个元素，所以它就是原数组的第一个值） diff[i] = arr[i] - arr[i-1] （对于 i 从 1 到 n-1） 一个简单的例子 假设我们有原数组： arr = [8, 2, 6, 3, 1]\n">
+<meta property='og:url' content='https://lidiudiudiu.github.io/p/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/'>
+<meta property='og:site_name' content='李丢丢的博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-01T15:30:13&#43;08:00'/><meta property='article:modified_time' content='2025-11-01T15:30:13&#43;08:00'/>
+<meta name="twitter:title" content="差分数组">
+<meta name="twitter:description" content="差分数组 什么是差分数组？ 差分数组是一个和原数组大小的数组，存储的是相邻数组的差值。\n具体来说：\n给定一个原数组 arr，其长度为 n。 我们可以构建一个差分数组 diff，其长度也为 n。 差分数组的元素定义如下： diff[0] = arr[0] （第一个元素没有前一个元素，所以它就是原数组的第一个值） diff[i] = arr[i] - arr[i-1] （对于 i 从 1 到 n-1） 一个简单的例子 假设我们有原数组： arr = [8, 2, 6, 3, 1]\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_b03090f1b080bf83.png" width="300"
+                            height="294" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">李丢丢的博客</a></h1>
+            <h2 class="site-description">认真生活笔记——向太阳生长</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一个简单的例子">一个简单的例子</a></li>
+    <li><a href="#它有什么用核心优势">它有什么用？（核心优势）</a></li>
+    <li><a href="#为什么这样可行原理">为什么这样可行？（原理）</a></li>
+    <li><a href="#具体代码">具体代码</a>
+      <ol>
+        <li><a href="#构建差分数组">构建差分数组</a></li>
+        <li><a href="#更新差分数组">更新差分数组</a></li>
+        <li><a href="#差分数组求和">差分数组求和</a></li>
+      </ol>
+    </li>
+    <li><a href="#力扣题目">力扣题目</a>
+      <ol>
+        <li><a href="#1094-拼车">1094 拼车</a>
+          <ol>
+            <li><a href="#思路">思路</a></li>
+            <li><a href="#多种题解">多种题解</a></li>
+          </ol>
+        </li>
+        <li><a href="#1526形成目标数组的子数组最小增加次数">1526.形成目标数组的子数组最小增加次数</a>
+          <ol>
+            <li><a href="#思路-1">思路</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/">差分数组</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-11-01</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="差分数组">差分数组
+</h1><p>什么是差分数组？ 差分数组是一个和原数组大小的数组，存储的是相邻数组的差值。</p>
+<p>具体来说：</p>
+<ul>
+<li>给定一个原数组 <code>arr</code>，其长度为 <code>n</code>。</li>
+<li>我们可以构建一个差分数组 <code>diff</code>，其长度也为 <code>n</code>。</li>
+<li>差分数组的元素定义如下：
+<ul>
+<li><code>diff[0] = arr[0]</code> （第一个元素没有前一个元素，所以它就是原数组的第一个值）</li>
+<li><code>diff[i] = arr[i] - arr[i-1]</code> （对于 i 从 1 到 n-1）</li>
+</ul>
+</li>
+</ul>
+<h2 id="一个简单的例子">一个简单的例子
+</h2><p>假设我们有原数组：
+<code>arr = [8, 2, 6, 3, 1]</code></p>
+<p>我们来构建它的差分数组 <code>diff</code>：</p>
+<ul>
+<li><code>diff[0] = arr[0] = 8</code></li>
+<li><code>diff[1] = arr[1] - arr[0] = 2 - 8 = -6</code></li>
+<li><code>diff[2] = arr[2] - arr[1] = 6 - 2 = 4</code></li>
+<li><code>diff[3] = arr[3] - arr[2] = 3 - 6 = -3</code></li>
+<li><code>diff[4] = arr[4] - arr[3] = 1 - 3 = -2</code></li>
+</ul>
+<p>所以，差分数组为：
+<code>diff = [8, -6, 4, -3, -2]</code></p>
+<h2 id="它有什么用核心优势">它有什么用？（核心优势）
+</h2><p>差分数组最强大的功能是能<strong>极其高效地对原数组的某个区间进行批量增减操作</strong>。</p>
+<p><strong>场景</strong>：如果你想给原数组 <code>arr</code> 中从索引 <code>L</code> 到索引 <code>R</code> 的每一个元素都加上一个值 <code>val</code>。</p>
+<p><strong>传统做法</strong>：你需要一个循环，从 <code>L</code> 遍历到 <code>R</code>，逐个给元素加上 <code>val</code>。如果区间很大，这个操作的时间复杂度是 O(N)。</p>
+<p><strong>使用差分数组的做法</strong>：你只需要修改差分数组中的<strong>两个值</strong>！</p>
+<ol>
+<li>给 <code>diff[L]</code> 加上 <code>val</code>。</li>
+<li>给 <code>diff[R+1]</code> 减去 <code>val</code>。（如果 <code>R+1</code> 超出了数组范围，则忽略第二步）</li>
+</ol>
+<p>这个操作的时间复杂度是 <strong>O(1)</strong>，与区间长度无关！</p>
+<h2 id="为什么这样可行原理">为什么这样可行？（原理）
+</h2><p>让我们通过上面的例子来理解。</p>
+<p><strong>原数组</strong>： <code>arr = [8, 2, 6, 3, 1]</code>
+<strong>差分数组</strong>： <code>diff = [8, -6, 4, -3, -2]</code></p>
+<p><strong>任务</strong>：我们想给 <code>arr[1]</code> 到 <code>arr[3]</code>（即 <code>[2, 6, 3]</code>）的每个元素都加上 5。</p>
+<p><strong>传统做法</strong>：
+<code>arr</code> 变为 <code>[8, 7, 11, 8, 1]</code></p>
+<p><strong>差分数组做法</strong>：</p>
+<ul>
+<li><code>L = 1</code>, <code>R = 3</code>, <code>val = 5</code></li>
+<li>第一步： <code>diff[1] += 5</code> -&gt; <code>diff[1]</code> 从 <code>-6</code> 变为 <code>-1</code></li>
+<li>第二步： <code>diff[R+1] = diff[4] -= 5</code> -&gt; <code>diff[4]</code> 从 <code>-2</code> 变为 <code>-7</code></li>
+<li>新的差分数组为： <code>diff_new = [8, -1, 4, -3, -7]</code></li>
+</ul>
+<p><strong>现在，我们来验证这个新的差分数组是否对应新的原数组</strong>：
+通过差分数组还原原数组（这个过程叫做“前缀和”运算）：</p>
+<ul>
+<li><code>new_arr[0] = diff_new[0] = 8</code></li>
+<li><code>new_arr[1] = new_arr[0] + diff_new[1] = 8 + (-1) = 7</code></li>
+<li><code>new_arr[2] = new_arr[1] + diff_new[2] = 7 + 4 = 11</code></li>
+<li><code>new_arr[3] = new_arr[2] + diff_new[3] = 11 + (-3) = 8</code></li>
+<li><code>new_arr[4] = new_arr[3] + diff_new[4] = 8 + (-7) = 1</code></li>
+</ul>
+<p>得到的新原数组是： <code>[8, 7, 11, 8, 1]</code>，这与传统方法得到的结果完全一致！</p>
+<p><strong>原理分析</strong>：</p>
+<ul>
+<li><code>diff[L] += val</code>：这个操作意味着从 <code>arr[L]</code> 开始，之后的所有元素都在原始值的基础上增加了 <code>val</code>（因为还原时是累加差分数组）。</li>
+<li><code>diff[R+1] -= val</code>：这个操作是为了抵消掉从 <code>arr[R+1]</code> 开始之后所有元素不应该增加的 <code>val</code>，从而将增加操作<strong>精确地限制在 <code>[L, R]</code> 区间内</strong>。</li>
+</ul>
+<h2 id="具体代码">具体代码
+</h2><h3 id="构建差分数组">构建差分数组
+</h3><p>差分数组第一个元素特殊处理一下 很好理解</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 从原数组构建差分数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param arr 原数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @returns 差分数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">buildDiffArray</span><span class="p">(</span><span class="nx">arr</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span><span class="p">[]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">diff</span>: <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 第一个元素特殊处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 从第二个元素开始，计算差值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">diff</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">diff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 示例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">originalArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">diffArray</span> <span class="o">=</span> <span class="nx">buildDiffArray</span><span class="p">(</span><span class="nx">originalArray</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;原数组:&#34;</span><span class="p">,</span> <span class="nx">originalArray</span><span class="p">);</span> <span class="c1">// [1, 3, 2, 5, 8]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;差分数组:&#34;</span><span class="p">,</span> <span class="nx">diffArray</span><span class="p">);</span>    <span class="c1">// [1, 2, -1, 3, 3]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="更新差分数组">更新差分数组
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 对原数组的某个区间进行增减操作（通过差分数组）
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param diff 差分数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param left 区间左边界（包含）
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param right 区间右边界（包含）
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param value 要增加的值（可为负数）
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">rangeUpdate</span><span class="p">(</span><span class="nx">diff</span>: <span class="kt">number</span><span class="p">[],</span> <span class="nx">left</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">diff</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在左边界加上值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">diff</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在右边界+1的位置减去值（如果存在）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">right</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">diff</span><span class="p">[</span><span class="nx">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用示例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;原始数组:&#34;</span><span class="p">,</span> <span class="nx">arr</span><span class="p">);</span> <span class="c1">// [1, 3, 2, 5, 8]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">buildDiffArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;差分数组:&#34;</span><span class="p">,</span> <span class="nx">diff</span><span class="p">);</span> <span class="c1">// [1, 2, -1, 3, 3]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 给索引 1 到 3 的元素都加上 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">rangeUpdate</span><span class="p">(</span><span class="nx">diff</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;更新后的差分数组:&#34;</span><span class="p">,</span> <span class="nx">diff</span><span class="p">);</span> <span class="c1">// [1, 6, -1, 3, -1]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">updatedArray</span> <span class="o">=</span> <span class="nx">getPrefixSum</span><span class="p">(</span><span class="nx">diff</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;更新后的数组:&#34;</span><span class="p">,</span> <span class="nx">updatedArray</span><span class="p">);</span> <span class="c1">// [1, 7, 6, 9, 8]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="差分数组求和">差分数组求和
+</h3><p>差分数组第一个元素不变，然后累加元素和</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 从差分数组求前缀和，还原原数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param diff 差分数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @returns 原数组
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getPrefixSum</span><span class="p">(</span><span class="nx">diff</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span><span class="p">[]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">diff</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span>: <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 第一个元素保持不变
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 累加前缀和
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">diff</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 示例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">restoredArray</span> <span class="o">=</span> <span class="nx">getPrefixSum</span><span class="p">(</span><span class="nx">diffArray</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;还原的数组:&#34;</span><span class="p">,</span> <span class="nx">restoredArray</span><span class="p">);</span> <span class="c1">// [1, 3, 2, 5, 8]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="力扣题目">力扣题目
+</h2><h3 id="1094-拼车">1094 拼车
+</h3><p><img src="https://raw.githubusercontent.com/lidiudiudiu/image-bed/main/image-20251031143236661.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031143236661"
+	
+	
+></p>
+<h4 id="思路">思路
+</h4><p>构建一个位置差分数组 【0，to的最大值】，遍历trip，对于trip[i]，每次from到to-1加上numPassengers[i]个人,判断就是如果某个位置超过了最大容量capacity，就返回false。如果一直都能装下，就返回true。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">carPooling</span><span class="p">(</span><span class="nx">trips</span>: <span class="kt">number</span><span class="p">[][],</span> <span class="nx">capacity</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">n</span>:<span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">trips</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="p">[,,</span><span class="nx">to</span><span class="p">]</span> <span class="o">=</span> <span class="nx">trips</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">to</span> <span class="o">&gt;</span> <span class="nx">n</span><span class="p">)</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">to</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//差分数组初始全是0，直接更新相当于构建
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">trips</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="p">[</span><span class="nx">num</span><span class="p">,</span><span class="kr">from</span><span class="p">,</span><span class="nx">to</span><span class="p">]</span> <span class="o">=</span> <span class="nx">trips</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">diff</span><span class="p">[</span><span class="kr">from</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">diff</span><span class="p">[</span><span class="nx">to</span><span class="p">]</span> <span class="o">-=</span> <span class="nx">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 前缀和构建原数组 看有没有超容量的站
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">diff</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">&gt;</span> <span class="nx">capacity</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="多种题解">多种题解
+</h4><p>用哈希表，把哈希表的 key 取出来排序，就可以从小到大遍历这些位置了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">carPooling</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">trips</span><span class="p">,</span> <span class="nx">capacity</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">num</span><span class="p">,</span> <span class="kr">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">]</span> <span class="k">of</span> <span class="nx">trips</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">d</span><span class="p">.</span><span class="kr">set</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="kr">from</span><span class="p">)</span> <span class="o">??</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">d</span><span class="p">.</span><span class="kr">set</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="nx">to</span><span class="p">)</span> <span class="o">??</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">k</span> <span class="k">of</span> <span class="p">[...</span><span class="nx">d</span><span class="p">.</span><span class="nx">keys</span><span class="p">()].</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">s</span> <span class="o">+=</span> <span class="nx">d</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="nx">k</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">s</span> <span class="o">&gt;</span> <span class="nx">capacity</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">作者：灵茶山艾府</span>
+</span></span><span class="line"><span class="cl"><span class="err">链接：</span><span class="nx">https</span><span class="o">:</span><span class="c1">//leetcode.cn/problems/car-pooling/solutions/2550264/suan-fa-xiao-ke-tang-chai-fen-shu-zu-fu-9d4ra/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">来源：力扣（</span><span class="nx">LeetCode</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="err">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="1526形成目标数组的子数组最小增加次数">1526.形成目标数组的子数组最小增加次数
+</h3><p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251031152840770.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031152840770"
+	
+	
+></p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251031153104294.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031153104294"
+	
+	
+></p>
+<h4 id="思路-1">思路
+</h4><p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251031155308508.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031155308508"
+	
+	
+></p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251031155336288.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031155336288"
+	
+	
+></p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251031155351236.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031155351236"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">minNumberOperations</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">ans</span> <span class="o">=</span> <span class="nx">target</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ans</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">target</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">target</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">作者</span><span class="err">：</span><span class="nx">灵茶山艾府</span>
+</span></span><span class="line"><span class="cl"><span class="nx">链接</span><span class="err">：</span><span class="nx">https</span><span class="o">:</span><span class="c1">//leetcode.cn/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/solutions/3808716/yong-chai-fen-si-kao-jian-ji-xie-fa-pyth-0v7x/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">来源</span><span class="err">：</span><span class="nx">力扣</span><span class="err">（</span><span class="nx">LeetCode</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">著作权归作者所有</span><span class="err">。</span><span class="nx">商业转载请联系作者获得授权</span><span class="err">，</span><span class="nx">非商业转载请注明出处</span><span class="err">。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另一种思路</p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251031160002055.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251031160002055"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 李丢丢-diudiuLi
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
