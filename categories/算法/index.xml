@@ -7,12 +7,28 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>李丢丢-diudiuLi</copyright>
-        <lastBuildDate>Sat, 01 Nov 2025 15:44:13 +0800</lastBuildDate><atom:link href="https://lidiudiudiu.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>3289.数字小镇里的捣蛋鬼</title>
-        <link>https://lidiudiudiu.github.io/p/3289.%E6%95%B0%E5%AD%97%E5%B0%8F%E9%95%87%E9%87%8C%E7%9A%84%E6%8D%A3%E8%9B%8B%E9%AC%BC/</link>
+        <lastBuildDate>Sun, 02 Nov 2025 10:09:20 +0800</lastBuildDate><atom:link href="https://lidiudiudiu.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2025.11.02 2257.统计网格图中没有被保卫的格子数</title>
+        <link>https://lidiudiudiu.github.io/p/2025.11.02-2257.%E7%BB%9F%E8%AE%A1%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BF%9D%E5%8D%AB%E7%9A%84%E6%A0%BC%E5%AD%90%E6%95%B0/</link>
+        <pubDate>Sun, 02 Nov 2025 10:09:20 +0800</pubDate>
+        
+        <guid>https://lidiudiudiu.github.io/p/2025.11.02-2257.%E7%BB%9F%E8%AE%A1%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BF%9D%E5%8D%AB%E7%9A%84%E6%A0%BC%E5%AD%90%E6%95%B0/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>2025.11.01 3217.从链表中移除在数组中存在的节点</title>
+        <link>https://lidiudiudiu.github.io/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+        <pubDate>Sun, 02 Nov 2025 10:05:39 +0800</pubDate>
+        
+        <guid>https://lidiudiudiu.github.io/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>2025.10.31-3289.数字小镇里的捣蛋鬼</title>
+        <link>https://lidiudiudiu.github.io/p/2025.10.31-3289.%E6%95%B0%E5%AD%97%E5%B0%8F%E9%95%87%E9%87%8C%E7%9A%84%E6%8D%A3%E8%9B%8B%E9%AC%BC/</link>
         <pubDate>Sat, 01 Nov 2025 15:44:13 +0800</pubDate>
         
-        <guid>https://lidiudiudiu.github.io/p/3289.%E6%95%B0%E5%AD%97%E5%B0%8F%E9%95%87%E9%87%8C%E7%9A%84%E6%8D%A3%E8%9B%8B%E9%AC%BC/</guid>
+        <guid>https://lidiudiudiu.github.io/p/2025.10.31-3289.%E6%95%B0%E5%AD%97%E5%B0%8F%E9%95%87%E9%87%8C%E7%9A%84%E6%8D%A3%E8%9B%8B%E9%AC%BC/</guid>
         <description>&lt;h1 id=&#34;3289数字小镇中的捣蛋鬼&#34;&gt;3289.数字小镇中的捣蛋鬼
 &lt;/h1&gt;&lt;p&gt;数字小镇 Digitville 中，存在一个数字列表 &lt;code&gt;nums&lt;/code&gt;，其中包含从 &lt;code&gt;0&lt;/code&gt; 到 &lt;code&gt;n - 1&lt;/code&gt; 的整数。每个数字本应 &lt;strong&gt;只出现一次&lt;/strong&gt;，然而，有 &lt;strong&gt;两个&lt;/strong&gt; 顽皮的数字额外多出现了一次，使得列表变得比正常情况下更长。&lt;/p&gt;
 &lt;p&gt;为了恢复 Digitville 的和平，作为小镇中的名侦探，请你找出这两个顽皮的数字。&lt;/p&gt;
