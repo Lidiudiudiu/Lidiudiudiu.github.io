@@ -21,7 +21,40 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://lidiudiudiu.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
+        <description>&lt;h2 id=&#34;-你好欢迎来到我的博客&#34;&gt;👋 你好，欢迎来到我的博客！
+&lt;/h2&gt;&lt;p&gt;这里是我的个人技术博客，主要分享我在学习和工作中的一些心得体会。&lt;/p&gt;
+&lt;h3 id=&#34;-关于我&#34;&gt;🎯 关于我
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;💻 热爱编程和技术&lt;/li&gt;
+&lt;li&gt;📚 持续学习新技术&lt;/li&gt;
+&lt;li&gt;🤔 喜欢思考和解决问题&lt;/li&gt;
+&lt;li&gt;✍️ 通过写作整理思路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-博客内容&#34;&gt;📝 博客内容
+&lt;/h3&gt;&lt;p&gt;这个博客主要记录：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;算法与数据结构&lt;/strong&gt; - 算法学习笔记和解题思路&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术分享&lt;/strong&gt; - 开发经验和技术总结&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习笔记&lt;/strong&gt; - 各种技术的学习记录&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生活感悟&lt;/strong&gt; - 偶尔的生活思考&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-技术栈&#34;&gt;🛠️ 技术栈
+&lt;/h3&gt;&lt;p&gt;目前主要关注的技术领域包括但不限于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前端开发&lt;/li&gt;
+&lt;li&gt;后端开发&lt;/li&gt;
+&lt;li&gt;算法与数据结构&lt;/li&gt;
+&lt;li&gt;系统设计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-联系方式&#34;&gt;📬 联系方式
+&lt;/h3&gt;&lt;p&gt;如果你对我的文章有任何疑问或建议，欢迎通过以下方式联系我：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;📧 Email: [你的邮箱]&lt;/li&gt;
+&lt;li&gt;🐙 GitHub: [你的GitHub]&lt;/li&gt;
+&lt;li&gt;💬 欢迎在文章下方留言交流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;感谢你的访问，希望我的分享对你有所帮助！&lt;/em&gt; 🎉&lt;/p&gt;
 </description>
         </item>
         <item>
