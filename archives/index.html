@@ -577,10 +577,205 @@
 
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
-<meting-js
-	server="netease"
-	type="playlist"
-	id="60198">
-</meting-js>
+
+<div id="music-player-container">
+    <meting-js
+        id="7524523805"
+        server="netease"
+        type="playlist"
+        fixed="false"
+        mini="false"
+        autoplay="false"
+        theme="#2980b9"
+        loop="all"
+        order="random"
+        preload="auto"
+        volume="0.08"
+        mutex="true"
+        lrc-type="0"
+        list-folded="true"
+        list-max-height="90px"
+        storage-name="metingjs">
+    </meting-js>
+</div>
+
+<style>
+ 
+#music-player-container {
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    z-index: 9999;
+    width: 400px;
+    max-width: calc(100vw - 40px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#music-player-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+    #music-player-container {
+        background: rgba(30, 30, 30, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+ 
+@media (max-width: 768px) {
+    #music-player-container {
+        width: 280px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #music-player-container {
+        width: calc(100vw - 30px);
+        left: 15px;
+        right: 15px;
+    }
+}
+
+ 
+#music-player-container .aplayer {
+    background: transparent;
+    border-radius: 12px;
+    box-shadow: none;
+    border: none;
+}
+
+#music-player-container .aplayer .aplayer-body {
+    background: transparent;
+}
+
+#music-player-container .aplayer .aplayer-info {
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    #music-player-container .aplayer .aplayer-info {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+#music-player-container .aplayer .aplayer-info .aplayer-music {
+    color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    #music-player-container .aplayer .aplayer-info .aplayer-music {
+        color: #fff;
+    }
+}
+
+#music-player-container .aplayer .aplayer-info .aplayer-author {
+    color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+    #music-player-container .aplayer .aplayer-info .aplayer-author {
+        color: #ccc;
+    }
+}
+
+ 
+#music-player-container .aplayer .aplayer-list {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border-radius: 0 0 12px 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    #music-player-container .aplayer .aplayer-list {
+        background: rgba(40, 40, 40, 0.9);
+    }
+}
+
+#music-player-container .aplayer .aplayer-list ol li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    #music-player-container .aplayer .aplayer-list ol li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: #fff;
+    }
+}
+
+#music-player-container .aplayer .aplayer-list ol li:hover {
+    background: rgba(41, 128, 185, 0.1);
+}
+
+#music-player-container .aplayer .aplayer-list ol li.aplayer-list-light {
+    background: rgba(41, 128, 185, 0.2);
+}
+
+ 
+#music-player-container .aplayer .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
+    background: rgba(41, 128, 185, 0.3);
+}
+
+#music-player-container .aplayer .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+    background: #2980b9;
+}
+
+#music-player-container .aplayer .aplayer-controller .aplayer-time {
+    color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+    #music-player-container .aplayer .aplayer-controller .aplayer-time {
+        color: #ccc;
+    }
+}
+
+ 
+#music-player-container .aplayer .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar {
+    background: rgba(41, 128, 185, 0.3);
+}
+
+#music-player-container .aplayer .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar .aplayer-volume {
+    background: #2980b9;
+}
+
+ 
+#music-player-container {
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+ 
+#music-player-container .aplayer.aplayer-narrow {
+    width: 66px;
+}
+
+#music-player-container .aplayer.aplayer-narrow .aplayer-body {
+    left: 66px;
+    width: calc(100% - 66px);
+}
+</style>
     </body>
 </html>
