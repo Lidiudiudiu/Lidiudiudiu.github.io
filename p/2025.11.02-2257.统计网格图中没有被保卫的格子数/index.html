@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="2257.统计网格图中没有被保卫的格子数 题目 给你两个整数 m 和 n 表示一个下标从 0 开始的 m x n 网格图。同时给你两个二维整数数组 guards 和 walls ，其中 guards[i] = [rowi, coli] 且 walls[j] = [rowj, colj] ，分别表示第 i 个警卫和第 j 座墙所在的位置。\n">
 <title>2025.11.02 2257.统计网格图中没有被保卫的格子数</title>
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/p/2025.11.02-2257.%E7%BB%9F%E8%AE%A1%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BF%9D%E5%8D%AB%E7%9A%84%E6%A0%BC%E5%AD%90%E6%95%B0/'>
 
 <link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="2025.11.02 2257.统计网格图中没有被保卫的格子数">
-<meta property='og:description' content="">
+<meta property='og:description' content="2257.统计网格图中没有被保卫的格子数 题目 给你两个整数 m 和 n 表示一个下标从 0 开始的 m x n 网格图。同时给你两个二维整数数组 guards 和 walls ，其中 guards[i] = [rowi, coli] 且 walls[j] = [rowj, colj] ，分别表示第 i 个警卫和第 j 座墙所在的位置。\n">
 <meta property='og:url' content='https://lidiudiudiu.github.io/p/2025.11.02-2257.%E7%BB%9F%E8%AE%A1%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BF%9D%E5%8D%AB%E7%9A%84%E6%A0%BC%E5%AD%90%E6%95%B0/'>
 <meta property='og:site_name' content='李丢丢的博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-02T10:09:20&#43;08:00'/><meta property='article:modified_time' content='2025-11-02T10:09:20&#43;08:00'/>
 <meta name="twitter:title" content="2025.11.02 2257.统计网格图中没有被保卫的格子数">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="2257.统计网格图中没有被保卫的格子数 题目 给你两个整数 m 和 n 表示一个下标从 0 开始的 m x n 网格图。同时给你两个二维整数数组 guards 和 walls ，其中 guards[i] = [rowi, coli] 且 walls[j] = [rowj, colj] ，分别表示第 i 个警卫和第 j 座墙所在的位置。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -243,7 +243,51 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#题目">题目</a></li>
+    <li><a href="#思路">思路</a>
+      <ol>
+        <li><a href="#问题理解">问题理解</a></li>
+        <li><a href="#思考过程">思考过程</a>
+          <ol>
+            <li><a href="#状态设计">状态设计</a></li>
+            <li><a href="#算法步骤">算法步骤</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#完整代码">完整代码</a></li>
+    <li><a href="#方法二广度优先搜索--存储每个格子的状态">方法二：广度优先搜索 + 存储每个格子的状态</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -304,7 +348,492 @@
     <section class="article-content">
     
     
-    
+    <h1 id="2257统计网格图中没有被保卫的格子数">2257.统计网格图中没有被保卫的格子数
+</h1><h2 id="题目">题目
+</h2><p>给你两个整数 <code>m</code> 和 <code>n</code> 表示一个下标从 <strong>0</strong> 开始的 <code>m x n</code> 网格图。同时给你两个二维整数数组 <code>guards</code> 和 <code>walls</code> ，其中 <code>guards[i] = [rowi, coli]</code> 且 <code>walls[j] = [rowj, colj]</code> ，分别表示第 <code>i</code> 个警卫和第 <code>j</code> 座墙所在的位置。</p>
+<p>一个警卫能看到 4 个坐标轴方向（即东、南、西、北）的 <strong>所有</strong> 格子，除非他们被一座墙或者另外一个警卫 <strong>挡住</strong> 了视线。如果一个格子能被 <strong>至少</strong> 一个警卫看到，那么我们说这个格子被 <strong>保卫</strong> 了。</p>
+<p>请你返回空格子中，有多少个格子是 <strong>没被保卫</strong> 的。</p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251102132850175.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251102132850175"
+	
+	
+></p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251102132903872.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251102132903872"
+	
+	
+></p>
+<h2 id="思路">思路
+</h2><h3 id="问题理解">问题理解
+</h3><p>有一个 m x n的格子，然后有三种类型的格子：</p>
+<ul>
+<li>警卫： 可以向四个放心看，直到被墙或者另一个警卫挡住</li>
+<li>墙： 阻挡视线</li>
+<li>空地： 初始未被保卫，被警卫看到，就变成被保卫</li>
+</ul>
+<p>目标：统计最终没有被保卫的空地数量</p>
+<h3 id="思考过程">思考过程
+</h3><p>模拟每个警卫的视线传播，标记所有能被看到的格子，最后统计没有被标记的格子数量。</p>
+<h4 id="状态设计">状态设计
+</h4><p>代码使用数字常量来表示不同的格子状态：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">GUARD</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>      <span class="c1">// 警卫位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">WALL</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>       <span class="c1">// 墙的位置  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">GUARDED</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>    <span class="c1">// 被保卫的空地（能被至少一个警卫看到）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">UNGUARDED</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 未被保卫的空地（初始状态）
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="算法步骤">算法步骤
+</h4><h5 id="初始化阶段">初始化阶段
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">grid</span>: <span class="kt">number</span><span class="p">[][]</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">m</span> <span class="p">},</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="nx">UNGUARDED</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里提一下Array.from的用法</p>
+<p>Array.from()的基本语法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">,</span><span class="nx">mapFn</span><span class="p">,</span><span class="nx">thisArg</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>arrayLike: 类数组对象或可迭代对象</li>
+<li>mapFn(可选)：对每个元素执行的映射函数</li>
+<li>thisArg(可选)：执行映射函数的this值</li>
+</ul>
+<p><strong>最常用的模式 {length:n}</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">5</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// [undefined, undefined, undefined, undefined, undefined]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><code>{ length: 5 }</code> 创建一个类数组对象，有 length 属性但没有实际元素</li>
+<li><code>Array.from()</code> 会读取 length 属性，知道要创建长度为5的数组</li>
+<li>由于没有提供映射函数，每个位置都用 <code>undefined</code> 填充</li>
+<li>结果：<code>[undefined, undefined, undefined, undefined, undefined]</code></li>
+</ol>
+<p><strong>第二个例子 带映射</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">5</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr2</span><span class="p">);</span> <span class="c1">// [0, 1, 2, 3, 4]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>映射函数详解</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>第一个参数是当前元素的值，用_表示我们不关心这个值_</p>
+<p>第二个参数i是当前元素的索引</p>
+<p>返回值，返回当前元素本身</p>
+<h5 id="arrayfrom示例">Array.from()示例
+</h5><ol>
+<li>
+<p>创建数字序列</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 创建 [0, 1, 2, 3, 4]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">5</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建 [2, 4, 6, 8, 10]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">evenNumbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">5</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>创建矩阵</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 3x3 单位矩阵
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">3</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">3</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">i</span> <span class="o">===</span> <span class="nx">j</span> <span class="o">?</span> <span class="nx">1</span> : <span class="kt">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// [[1,0,0], [0,1,0], [0,0,1]]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>处理类对象数组</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 从字符串创建数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">chars</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">);</span> <span class="c1">// [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 从Set创建数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="kr">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">arrFromSet</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="kr">set</span><span class="p">);</span> <span class="c1">// [1, 2, 3]
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h5 id="放置障碍物">放置障碍物
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 标记墙
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="k">of</span> <span class="nx">walls</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">grid</span><span class="p">[</span><span class="nx">r</span><span class="p">][</span><span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="nx">WALL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 标记警卫  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="k">of</span> <span class="nx">guards</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">grid</span><span class="p">[</span><span class="nx">r</span><span class="p">][</span><span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="nx">GUARD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>墙和警卫会阻挡视线，所以先固定它们的位置</li>
+</ul>
+<h5 id="视线传播核心逻辑">视线传播（核心逻辑）
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">directions</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]];</span> <span class="c1">// 上、下、左、右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="k">of</span> <span class="nx">guards</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">dr</span><span class="p">,</span> <span class="nx">dc</span><span class="p">]</span> <span class="k">of</span> <span class="nx">directions</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">nr</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">+</span> <span class="nx">dr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">nc</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">+</span> <span class="nx">dc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="nx">nr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nr</span> <span class="o">&lt;</span> <span class="nx">m</span> <span class="o">&amp;&amp;</span> <span class="nx">nc</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nc</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">===</span> <span class="nx">WALL</span> <span class="o">||</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">===</span> <span class="nx">GUARD</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>  <span class="c1">// 遇到阻挡，停止该方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">GUARDED</span><span class="p">;</span>  <span class="c1">// 标记为被保卫
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            
+</span></span><span class="line"><span class="cl">            <span class="nx">nr</span> <span class="o">+=</span> <span class="nx">dr</span><span class="p">;</span>  <span class="c1">// 继续沿该方向前进
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">nc</span> <span class="o">+=</span> <span class="nx">dc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>方向定义</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">directions</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]];</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 分别表示：上、下、左、右
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>[-1, 0]</code>: 向上移动 (行减1，列不变)</li>
+<li><code>[1, 0]</code>: 向下移动 (行加1，列不变)</li>
+<li><code>[0, -1]</code>: 向左移动 (行不变，列减1)</li>
+<li><code>[0, 1]</code>: 向右移动 (行不变，列加1)</li>
+</ul>
+<p>外层循环：遍历每个警卫</p>
+<p>for (const [r, c] of guards) {
+// 对每个警卫处理四个方向
+}</p>
+<p>[r,c]是当前警卫的坐标，对网格中的每个警卫都依次处理</p>
+<hr>
+<p>中层循环：处理四个方向</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">dr</span><span class="p">,</span> <span class="nx">dc</span><span class="p">]</span> <span class="k">of</span> <span class="nx">directions</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 对每个方向进行射线扫描
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>每个警卫处理上下左右四个方向</p>
+<hr>
+<p>内层循环</p>
+<ol>
+<li>
+<p>初始化射线起点</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">nr</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">+</span> <span class="nx">dr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">nc</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">+</span> <span class="nx">dc</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p><strong>重要</strong>：从警卫的<strong>旁边一格</strong>开始，而不是从警卫本身开始！</p>
+<ul>
+<li>因为警卫所在位置已经被标记为 <code>GUARD</code>，不需要再标记</li>
+<li>视线从警卫位置发出，但检查的是旁边的格子</li>
+</ul>
+<ol start="2">
+<li>
+<p>射线循环传播</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="nx">nr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nr</span> <span class="o">&lt;</span> <span class="nx">m</span> <span class="o">&amp;&amp;</span> <span class="nx">nc</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nc</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在网格边界内才继续
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>阻挡检查</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">===</span> <span class="nx">WALL</span> <span class="o">||</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">===</span> <span class="nx">GUARD</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">break</span><span class="p">;</span>  <span class="c1">// 遇到阻挡，停止该方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>标记被保卫</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">GUARDED</span><span class="p">;</span>  <span class="c1">// 标记为被保卫
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>移动到下一格</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">nr</span> <span class="o">+=</span> <span class="nx">dr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nc</span> <span class="o">+=</span> <span class="nx">dc</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="完整代码">完整代码
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">countUnguarded</span><span class="p">(</span><span class="nx">m</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">n</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">guards</span>: <span class="kt">number</span><span class="p">[][],</span> <span class="nx">walls</span>: <span class="kt">number</span><span class="p">[][])</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 用数字表示状态，便于检查
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">GUARD</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">WALL</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">GUARDED</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// 被保卫的空地
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">UNGUARDED</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 未被保卫的空地（初始状态）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 初始化网格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">grid</span>: <span class="kt">number</span><span class="p">[][]</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span> <span class="nx">length</span>: <span class="kt">m</span> <span class="p">},</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="nx">UNGUARDED</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 标记墙
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="k">of</span> <span class="nx">walls</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">grid</span><span class="p">[</span><span class="nx">r</span><span class="p">][</span><span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="nx">WALL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 标记警卫
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="k">of</span> <span class="nx">guards</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">grid</span><span class="p">[</span><span class="nx">r</span><span class="p">][</span><span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="nx">GUARD</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 四个方向：上、下、左、右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">directions</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 对每个警卫进行视线传播
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">]</span> <span class="k">of</span> <span class="nx">guards</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">dr</span><span class="p">,</span> <span class="nx">dc</span><span class="p">]</span> <span class="k">of</span> <span class="nx">directions</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">nr</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">+</span> <span class="nx">dr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">nc</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">+</span> <span class="nx">dc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1">// 沿着方向一直走，直到遇到阻挡或边界
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">while</span> <span class="p">(</span><span class="nx">nr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nr</span> <span class="o">&lt;</span> <span class="nx">m</span> <span class="o">&amp;&amp;</span> <span class="nx">nc</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nc</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 遇到墙或警卫就停止
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">===</span> <span class="nx">WALL</span> <span class="o">||</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">===</span> <span class="nx">GUARD</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="c1">// 标记为被保卫
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">grid</span><span class="p">[</span><span class="nx">nr</span><span class="p">][</span><span class="nx">nc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">GUARDED</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="c1">// 继续前进
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">nr</span> <span class="o">+=</span> <span class="nx">dr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">nc</span> <span class="o">+=</span> <span class="nx">dc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 统计未被保卫的格子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">unguardedCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">m</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">===</span> <span class="nx">UNGUARDED</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">unguardedCount</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">unguardedCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="方法二广度优先搜索--存储每个格子的状态">方法二：广度优先搜索 + 存储每个格子的状态
+</h2>
 </section>
 
 
@@ -373,6 +902,19 @@
 
         <div class="article-details">
             <h2 class="article-title">2025.10.31-3289.数字小镇里的捣蛋鬼</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构</h2>
         </div>
     </a>
 </article>
