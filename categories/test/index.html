@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/categories/test/'>
 
-<link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="Category: Test - 李丢丢的博客">
+<link rel="stylesheet" href="/scss/style.min.845524e03f97820af6d915604b3d1e9da5ee8b3094cc3ee504c229608a7a1eaf.css"><meta property='og:title' content="Category: Test - 李丢丢的博客">
 <meta property='og:description' content="This is an example category">
 <meta property='og:url' content='https://lidiudiudiu.github.io/categories/test/'>
 <meta property='og:site_name' content='李丢丢的博客'>
@@ -15,7 +15,44 @@
 <meta name="twitter:description" content="This is an example category"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://lidiudiudiu.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' /><link rel="alternate" type="application/rss&#43;xml" href="https://lidiudiudiu.github.io/categories/test/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+ 
+:root { --player-reserved-height: 160px; }
 
+.sidebar.right-sidebar #sidebar-static {
+    min-height: var(--player-reserved-height);
+}
+
+ 
+.template-archives .music-player,
+.template-search .music-player { display: none !important; }
+.template-archives .sidebar.right-sidebar #sidebar-static,
+.template-search .sidebar.right-sidebar #sidebar-static { min-height: 0; }
+
+ 
+.music-player { 
+    opacity: 0; 
+     
+    transform: translateY(-2px);
+     
+    animation: player-fade-in 240ms cubic-bezier(.2,.7,.3,1) 0ms forwards; 
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+@keyframes player-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.music-player .aplayer {
+    background: linear-gradient(135deg,
+        rgba(41, 128, 185, 0.14),
+        rgba(41, 128, 185, 0.06)
+    );
+}
+</style>
         
         <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     </head>
@@ -245,107 +282,14 @@
 
     <aside class="sidebar right-sidebar sticky">
         
-            
-                <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2025">
-                        
-                            <span class="year">2025</span>
-                            <span class="count">6</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2019">
-                        
-                            <span class="year">2019</span>
-                            <span class="count">4</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/categories/%E7%AE%97%E6%B3%95/" class="font_size_5">
-                算法
-            </a>
-        
-            <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="font_size_3">
-                每日一题
-            </a>
-        
-            <a href="/categories/test/" class="font_size_2">
-                Test
-            </a>
-        
-            <a href="/categories/syntax/" class="font_size_1">
-                Syntax
-            </a>
-        
-            <a href="/categories/test-with-whitespaces/" class="font_size_1">
-                Test With Whitespaces
-            </a>
-        
-            <a href="/categories/themes/" class="font_size_1">
-                Themes
-            </a>
-        
-            <a href="/categories/%E6%95%99%E7%A8%8B/" class="font_size_1">
-                教程
-            </a>
-        
-            <a href="/categories/%E6%95%B0%E7%8B%AC/" class="font_size_1">
-                数独
-            </a>
-        
-            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="font_size_1">
-                游戏
-            </a>
-        
-    </div>
-</section>
-
-            
-        
+        <div id="sidebar-static">
             
                 
+            
+                
+            
+                
+                    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -353,7 +297,7 @@
 <section class="widget music-player">
     <h2 class="widget-title section-title">音乐播放器</h2>
     <div class="music-player-container"><meting-js
-            id="7524523805"
+            id="8833419717"
             server="netease"
             type="playlist"
             autoplay="false"
@@ -447,10 +391,119 @@
     width: calc(100% - 66px);
 }
 </style>
+                    
+                
             
-        
-    </aside>
+        </div>
 
+        
+        <div id="sidebar-dynamic">
+            
+                
+                    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">归档</h2>
+
+        
+        
+        
+        
+        
+        <div class="widget-archive--list">
+            <div class="archives-year">
+                    <a href="/archives/#2025">
+                        
+                            <span class="year">2025</span>
+                            <span class="count">6</span>
+                        
+                    </a> 
+                </div>
+            <div class="archives-year">
+                    <a href="/archives/#2019">
+                        
+                            <span class="year">2019</span>
+                            <span class="count">4</span>
+                        
+                    </a> 
+                </div>
+            
+        </div>
+    </section>
+                    
+                
+            
+                
+                    <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">分类</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/categories/%E7%AE%97%E6%B3%95/" class="font_size_5">
+                算法
+            </a>
+        
+            <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" class="font_size_3">
+                每日一题
+            </a>
+        
+            <a href="/categories/test/" class="font_size_2">
+                Test
+            </a>
+        
+            <a href="/categories/syntax/" class="font_size_1">
+                Syntax
+            </a>
+        
+            <a href="/categories/test-with-whitespaces/" class="font_size_1">
+                Test With Whitespaces
+            </a>
+        
+            <a href="/categories/themes/" class="font_size_1">
+                Themes
+            </a>
+        
+            <a href="/categories/%E6%95%99%E7%A8%8B/" class="font_size_1">
+                教程
+            </a>
+        
+            <a href="/categories/%E6%95%B0%E7%8B%AC/" class="font_size_1">
+                数独
+            </a>
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="font_size_1">
+                游戏
+            </a>
+        
+    </div>
+</section>
+
+                    
+                
+            
+                
+            
+        </div>
+    </aside>
 
             <main class="main full-width" id="pjax-container">
     <header>
@@ -566,7 +619,8 @@
                 
                 var pjax = new Pjax({
                     elements: 'a:not([data-no-pjax]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([target="_blank"])',
-                    selectors: ['#pjax-container', 'title'],
+                    
+                    selectors: ['#pjax-container', '#sidebar-dynamic', 'title'],
                     cacheBust: false,
                     timeout: 8000
                 });

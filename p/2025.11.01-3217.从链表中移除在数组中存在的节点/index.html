@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/'>
 
-<link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="2025.11.01 3217.从链表中移除在数组中存在的节点">
+<link rel="stylesheet" href="/scss/style.min.845524e03f97820af6d915604b3d1e9da5ee8b3094cc3ee504c229608a7a1eaf.css"><meta property='og:title' content="2025.11.01 3217.从链表中移除在数组中存在的节点">
 <meta property='og:description' content="3217.从链表中移除在数组中存在的节点 题目 给你一个整数数组 nums 和一个链表的头节点 head。从链表中移除所有存在于 nums 中的节点后，返回修改后的链表的头节点。\n思路 我的思路 哈希，把数组存到哈希表里，两个指针 pre指向哑节点，cur指向当前节点。遍历链表 当哈希表中有cur.val的时候，把pre的next指向cur的next 最后返回dummy.next\n">
 <meta property='og:url' content='https://lidiudiudiu.github.io/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/'>
 <meta property='og:site_name' content='李丢丢的博客'>
@@ -14,7 +14,44 @@
 <meta name="twitter:title" content="2025.11.01 3217.从链表中移除在数组中存在的节点">
 <meta name="twitter:description" content="3217.从链表中移除在数组中存在的节点 题目 给你一个整数数组 nums 和一个链表的头节点 head。从链表中移除所有存在于 nums 中的节点后，返回修改后的链表的头节点。\n思路 我的思路 哈希，把数组存到哈希表里，两个指针 pre指向哑节点，cur指向当前节点。遍历链表 当哈希表中有cur.val的时候，把pre的next指向cur的next 最后返回dummy.next\n">
     <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+ 
+:root { --player-reserved-height: 160px; }
 
+.sidebar.right-sidebar #sidebar-static {
+    min-height: var(--player-reserved-height);
+}
+
+ 
+.template-archives .music-player,
+.template-search .music-player { display: none !important; }
+.template-archives .sidebar.right-sidebar #sidebar-static,
+.template-search .sidebar.right-sidebar #sidebar-static { min-height: 0; }
+
+ 
+.music-player { 
+    opacity: 0; 
+     
+    transform: translateY(-2px);
+     
+    animation: player-fade-in 240ms cubic-bezier(.2,.7,.3,1) 0ms forwards; 
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+@keyframes player-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.music-player .aplayer {
+    background: linear-gradient(135deg,
+        rgba(41, 128, 185, 0.14),
+        rgba(41, 128, 185, 0.06)
+    );
+}
+</style>
         
         <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     </head>
@@ -244,43 +281,15 @@
     </ol>
 </aside>
 
+    
     <aside class="sidebar right-sidebar sticky">
         
+        <div id="sidebar-static">
             
                 
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#题目">题目</a></li>
-    <li><a href="#思路">思路</a>
-      <ol>
-        <li><a href="#我的思路">我的思路</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
             
                 
+                    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -288,7 +297,7 @@
 <section class="widget music-player">
     <h2 class="widget-title section-title">音乐播放器</h2>
     <div class="music-player-container"><meting-js
-            id="7524523805"
+            id="8833419717"
             server="netease"
             type="playlist"
             autoplay="false"
@@ -382,10 +391,52 @@
     width: calc(100% - 66px);
 }
 </style>
+                    
+                
             
-        
-    </aside>
+        </div>
 
+        
+        <div id="sidebar-dynamic">
+            
+                
+                    
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#题目">题目</a></li>
+    <li><a href="#思路">思路</a>
+      <ol>
+        <li><a href="#我的思路">我的思路</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+                    
+                
+            
+                
+            
+        </div>
+    </aside>
 
             <main class="main full-width" id="pjax-container">
     <article class="main-article">
@@ -779,7 +830,8 @@
                 
                 var pjax = new Pjax({
                     elements: 'a:not([data-no-pjax]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([target="_blank"])',
-                    selectors: ['#pjax-container', 'title'],
+                    
+                    selectors: ['#pjax-container', '#sidebar-dynamic', 'title'],
                     cacheBust: false,
                     timeout: 8000
                 });

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/p/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/'>
 
-<link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="差分数组">
+<link rel="stylesheet" href="/scss/style.min.845524e03f97820af6d915604b3d1e9da5ee8b3094cc3ee504c229608a7a1eaf.css"><meta property='og:title' content="差分数组">
 <meta property='og:description' content="差分数组 什么是差分数组？ 差分数组是一个和原数组大小的数组，存储的是相邻数组的差值。\n具体来说：\n给定一个原数组 arr，其长度为 n。 我们可以构建一个差分数组 diff，其长度也为 n。 差分数组的元素定义如下： diff[0] = arr[0] （第一个元素没有前一个元素，所以它就是原数组的第一个值） diff[i] = arr[i] - arr[i-1] （对于 i 从 1 到 n-1） 一个简单的例子 假设我们有原数组： arr = [8, 2, 6, 3, 1]\n">
 <meta property='og:url' content='https://lidiudiudiu.github.io/p/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/'>
 <meta property='og:site_name' content='李丢丢的博客'>
@@ -14,7 +14,44 @@
 <meta name="twitter:title" content="差分数组">
 <meta name="twitter:description" content="差分数组 什么是差分数组？ 差分数组是一个和原数组大小的数组，存储的是相邻数组的差值。\n具体来说：\n给定一个原数组 arr，其长度为 n。 我们可以构建一个差分数组 diff，其长度也为 n。 差分数组的元素定义如下： diff[0] = arr[0] （第一个元素没有前一个元素，所以它就是原数组的第一个值） diff[i] = arr[i] - arr[i-1] （对于 i 从 1 到 n-1） 一个简单的例子 假设我们有原数组： arr = [8, 2, 6, 3, 1]\n">
     <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+ 
+:root { --player-reserved-height: 160px; }
 
+.sidebar.right-sidebar #sidebar-static {
+    min-height: var(--player-reserved-height);
+}
+
+ 
+.template-archives .music-player,
+.template-search .music-player { display: none !important; }
+.template-archives .sidebar.right-sidebar #sidebar-static,
+.template-search .sidebar.right-sidebar #sidebar-static { min-height: 0; }
+
+ 
+.music-player { 
+    opacity: 0; 
+     
+    transform: translateY(-2px);
+     
+    animation: player-fade-in 240ms cubic-bezier(.2,.7,.3,1) 0ms forwards; 
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+@keyframes player-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.music-player .aplayer {
+    background: linear-gradient(135deg,
+        rgba(41, 128, 185, 0.14),
+        rgba(41, 128, 185, 0.06)
+    );
+}
+</style>
         
         <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     </head>
@@ -244,62 +281,15 @@
     </ol>
 </aside>
 
+    
     <aside class="sidebar right-sidebar sticky">
         
+        <div id="sidebar-static">
             
                 
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#一个简单的例子">一个简单的例子</a></li>
-    <li><a href="#它有什么用核心优势">它有什么用？（核心优势）</a></li>
-    <li><a href="#为什么这样可行原理">为什么这样可行？（原理）</a></li>
-    <li><a href="#具体代码">具体代码</a>
-      <ol>
-        <li><a href="#构建差分数组">构建差分数组</a></li>
-        <li><a href="#更新差分数组">更新差分数组</a></li>
-        <li><a href="#差分数组求和">差分数组求和</a></li>
-      </ol>
-    </li>
-    <li><a href="#力扣题目">力扣题目</a>
-      <ol>
-        <li><a href="#1094-拼车">1094 拼车</a>
-          <ol>
-            <li><a href="#思路">思路</a></li>
-            <li><a href="#多种题解">多种题解</a></li>
-          </ol>
-        </li>
-        <li><a href="#1526形成目标数组的子数组最小增加次数">1526.形成目标数组的子数组最小增加次数</a>
-          <ol>
-            <li><a href="#思路-1">思路</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
             
                 
+                    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -307,7 +297,7 @@
 <section class="widget music-player">
     <h2 class="widget-title section-title">音乐播放器</h2>
     <div class="music-player-container"><meting-js
-            id="7524523805"
+            id="8833419717"
             server="netease"
             type="playlist"
             autoplay="false"
@@ -401,10 +391,71 @@
     width: calc(100% - 66px);
 }
 </style>
+                    
+                
             
-        
-    </aside>
+        </div>
 
+        
+        <div id="sidebar-dynamic">
+            
+                
+                    
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一个简单的例子">一个简单的例子</a></li>
+    <li><a href="#它有什么用核心优势">它有什么用？（核心优势）</a></li>
+    <li><a href="#为什么这样可行原理">为什么这样可行？（原理）</a></li>
+    <li><a href="#具体代码">具体代码</a>
+      <ol>
+        <li><a href="#构建差分数组">构建差分数组</a></li>
+        <li><a href="#更新差分数组">更新差分数组</a></li>
+        <li><a href="#差分数组求和">差分数组求和</a></li>
+      </ol>
+    </li>
+    <li><a href="#力扣题目">力扣题目</a>
+      <ol>
+        <li><a href="#1094-拼车">1094 拼车</a>
+          <ol>
+            <li><a href="#思路">思路</a></li>
+            <li><a href="#多种题解">多种题解</a></li>
+          </ol>
+        </li>
+        <li><a href="#1526形成目标数组的子数组最小增加次数">1526.形成目标数组的子数组最小增加次数</a>
+          <ol>
+            <li><a href="#思路-1">思路</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+                    
+                
+            
+                
+            
+        </div>
+    </aside>
 
             <main class="main full-width" id="pjax-container">
     <article class="main-article">
@@ -1145,7 +1196,8 @@
                 
                 var pjax = new Pjax({
                     elements: 'a:not([data-no-pjax]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([target="_blank"])',
-                    selectors: ['#pjax-container', 'title'],
+                    
+                    selectors: ['#pjax-container', '#sidebar-dynamic', 'title'],
                     cacheBust: false,
                     timeout: 8000
                 });

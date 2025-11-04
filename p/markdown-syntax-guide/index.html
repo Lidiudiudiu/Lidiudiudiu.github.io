@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/p/markdown-syntax-guide/'>
 
-<link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="Markdown Syntax Guide">
+<link rel="stylesheet" href="/scss/style.min.845524e03f97820af6d915604b3d1e9da5ee8b3094cc3ee504c229608a7a1eaf.css"><meta property='og:title' content="Markdown Syntax Guide">
 <meta property='og:description' content="Sample article showcasing basic Markdown syntax and formatting for HTML elements.">
 <meta property='og:url' content='https://lidiudiudiu.github.io/p/markdown-syntax-guide/'>
 <meta property='og:site_name' content='李丢丢的博客'>
@@ -15,7 +15,44 @@
 <meta name="twitter:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://lidiudiudiu.github.io/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+ 
+:root { --player-reserved-height: 160px; }
 
+.sidebar.right-sidebar #sidebar-static {
+    min-height: var(--player-reserved-height);
+}
+
+ 
+.template-archives .music-player,
+.template-search .music-player { display: none !important; }
+.template-archives .sidebar.right-sidebar #sidebar-static,
+.template-search .sidebar.right-sidebar #sidebar-static { min-height: 0; }
+
+ 
+.music-player { 
+    opacity: 0; 
+     
+    transform: translateY(-2px);
+     
+    animation: player-fade-in 240ms cubic-bezier(.2,.7,.3,1) 0ms forwards; 
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+@keyframes player-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.music-player .aplayer {
+    background: linear-gradient(135deg,
+        rgba(41, 128, 185, 0.14),
+        rgba(41, 128, 185, 0.06)
+    );
+}
+</style>
         
         <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     </head>
@@ -245,95 +282,15 @@
     </ol>
 </aside>
 
+    
     <aside class="sidebar right-sidebar sticky">
         
+        <div id="sidebar-static">
             
                 
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#headings">Headings</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#h2">H2</a>
-      <ol>
-        <li><a href="#h3">H3</a>
-          <ol>
-            <li><a href="#h4">H4</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#paragraph">Paragraph</a></li>
-    <li><a href="#blockquotes">Blockquotes</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#blockquote-without-attribution">Blockquote without attribution</a></li>
-            <li><a href="#blockquote-with-attribution">Blockquote with attribution</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#tables">Tables</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#inline-markdown-within-tables">Inline Markdown within tables</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#code-blocks">Code Blocks</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#code-block-with-backticks">Code block with backticks</a></li>
-            <li><a href="#code-block-indented-with-four-spaces">Code block indented with four spaces</a></li>
-            <li><a href="#code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode</a></li>
-            <li><a href="#diff-code-block">Diff code block</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#list-types">List Types</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#ordered-list">Ordered List</a></li>
-            <li><a href="#unordered-list">Unordered List</a></li>
-            <li><a href="#nested-list">Nested list</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark</a></li>
-    <li><a href="#hyperlinked-image">Hyperlinked image</a></li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
             
                 
+                    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -341,7 +298,7 @@
 <section class="widget music-player">
     <h2 class="widget-title section-title">音乐播放器</h2>
     <div class="music-player-container"><meting-js
-            id="7524523805"
+            id="8833419717"
             server="netease"
             type="playlist"
             autoplay="false"
@@ -435,10 +392,104 @@
     width: calc(100% - 66px);
 }
 </style>
+                    
+                
             
-        
-    </aside>
+        </div>
 
+        
+        <div id="sidebar-dynamic">
+            
+                
+                    
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#headings">Headings</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#h2">H2</a>
+      <ol>
+        <li><a href="#h3">H3</a>
+          <ol>
+            <li><a href="#h4">H4</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#paragraph">Paragraph</a></li>
+    <li><a href="#blockquotes">Blockquotes</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#blockquote-without-attribution">Blockquote without attribution</a></li>
+            <li><a href="#blockquote-with-attribution">Blockquote with attribution</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#tables">Tables</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#inline-markdown-within-tables">Inline Markdown within tables</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#code-blocks">Code Blocks</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#code-block-with-backticks">Code block with backticks</a></li>
+            <li><a href="#code-block-indented-with-four-spaces">Code block indented with four spaces</a></li>
+            <li><a href="#code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode</a></li>
+            <li><a href="#diff-code-block">Diff code block</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#list-types">List Types</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#ordered-list">Ordered List</a></li>
+            <li><a href="#unordered-list">Unordered List</a></li>
+            <li><a href="#nested-list">Nested list</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark</a></li>
+    <li><a href="#hyperlinked-image">Hyperlinked image</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+                    
+                
+            
+                
+            
+        </div>
+    </aside>
 
             <main class="main full-width" id="pjax-container">
     <article class="has-image main-article">
@@ -918,7 +969,8 @@
                 
                 var pjax = new Pjax({
                     elements: 'a:not([data-no-pjax]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([target="_blank"])',
-                    selectors: ['#pjax-container', 'title'],
+                    
+                    selectors: ['#pjax-container', '#sidebar-dynamic', 'title'],
                     cacheBust: false,
                     timeout: 8000
                 });

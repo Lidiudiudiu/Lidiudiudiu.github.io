@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/'>
 
-<link rel="stylesheet" href="/scss/style.min.516915c3e41d61e899d7a9c4c35f7a951174e62c947306b848c4b9010500aa96.css"><meta property='og:title' content="友情链接">
+<link rel="stylesheet" href="/scss/style.min.845524e03f97820af6d915604b3d1e9da5ee8b3094cc3ee504c229608a7a1eaf.css"><meta property='og:title' content="友情链接">
 <meta property='og:description' content="To use this feature, add links section to frontmatter.\nThis page&rsquo;s frontmatter:\n1 2 3 4 5 6 7 8 9 links: - title: GitHub description: GitHub is the world&#39;s largest software development platform. website: https://github.com image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png - title: TypeScript description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. website: https://www.typescriptlang.org image: ts-logo-128.jpg image field accepts both local and external images.\n">
 <meta property='og:url' content='https://lidiudiudiu.github.io/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/'>
 <meta property='og:site_name' content='李丢丢的博客'>
@@ -14,7 +14,44 @@
 <meta name="twitter:title" content="友情链接">
 <meta name="twitter:description" content="To use this feature, add links section to frontmatter.\nThis page&rsquo;s frontmatter:\n1 2 3 4 5 6 7 8 9 links: - title: GitHub description: GitHub is the world&#39;s largest software development platform. website: https://github.com image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png - title: TypeScript description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. website: https://www.typescriptlang.org image: ts-logo-128.jpg image field accepts both local and external images.\n">
     <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+ 
+:root { --player-reserved-height: 160px; }
 
+.sidebar.right-sidebar #sidebar-static {
+    min-height: var(--player-reserved-height);
+}
+
+ 
+.template-archives .music-player,
+.template-search .music-player { display: none !important; }
+.template-archives .sidebar.right-sidebar #sidebar-static,
+.template-search .sidebar.right-sidebar #sidebar-static { min-height: 0; }
+
+ 
+.music-player { 
+    opacity: 0; 
+     
+    transform: translateY(-2px);
+     
+    animation: player-fade-in 240ms cubic-bezier(.2,.7,.3,1) 0ms forwards; 
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+@keyframes player-fade-in {
+    from { opacity: 0; transform: translateY(-2px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.music-player .aplayer {
+    background: linear-gradient(135deg,
+        rgba(41, 128, 185, 0.14),
+        rgba(41, 128, 185, 0.06)
+    );
+}
+</style>
         
         <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     </head>
@@ -244,14 +281,15 @@
     </ol>
 </aside>
 
+    
     <aside class="sidebar right-sidebar sticky">
         
+        <div id="sidebar-static">
             
                 
             
-        
-            
                 
+                    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -259,7 +297,7 @@
 <section class="widget music-player">
     <h2 class="widget-title section-title">音乐播放器</h2>
     <div class="music-player-container"><meting-js
-            id="7524523805"
+            id="8833419717"
             server="netease"
             type="playlist"
             autoplay="false"
@@ -353,10 +391,23 @@
     width: calc(100% - 66px);
 }
 </style>
+                    
+                
             
-        
-    </aside>
+        </div>
 
+        
+        <div id="sidebar-dynamic">
+            
+                
+                    
+                    
+                
+            
+                
+            
+        </div>
+    </aside>
 
             <main class="main full-width" id="pjax-container">
     <article class="main-article">
@@ -628,7 +679,8 @@
                 
                 var pjax = new Pjax({
                     elements: 'a:not([data-no-pjax]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([target="_blank"])',
-                    selectors: ['#pjax-container', 'title'],
+                    
+                    selectors: ['#pjax-container', '#sidebar-dynamic', 'title'],
                     cacheBust: false,
                     timeout: 8000
                 });
