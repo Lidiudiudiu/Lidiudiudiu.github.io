@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="3217.从链表中移除在数组中存在的节点 题目 给你一个整数数组 nums 和一个链表的头节点 head。从链表中移除所有存在于 nums 中的节点后，返回修改后的链表的头节点。\n思路 我的思路 哈希，把数组存到哈希表里，两个指针 pre指向哑节点，cur指向当前节点。遍历链表 当哈希表中有cur.val的时候，把pre的next指向cur的next 最后返回dummy.next\n">
-<title>2025.11.01 3217.从链表中移除在数组中存在的节点</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1578.把绳子变成彩色的最短时间 Alice 把 n 个气球排列在一根绳子上。给你一个下标从 0 开始的字符串 colors ，其中 colors[i] 是第 i 个气球的颜色。\nAlice 想要把绳子装扮成 五颜六色的 ，且她不希望两个连续的气球涂着相同的颜色，所以她喊来 Bob 帮忙。Bob 可以从绳子上移除一些气球使绳子变成 彩色 。给你一个 下标从 0 开始 的整数数组 neededTime ，其中 neededTime[i] 是 Bob 从绳子上移除第 i 个气球需要的时间（以秒为单位）。\n">
+<title>1578.把绳子变成彩色的最短时间</title>
 
-<link rel='canonical' href='https://lidiudiudiu.github.io/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/'>
+<link rel='canonical' href='https://lidiudiudiu.github.io/p/1578.%E6%8A%8A%E7%BB%B3%E5%AD%90%E5%8F%98%E6%88%90%E5%BD%A9%E8%89%B2%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/'>
 
-<link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="2025.11.01 3217.从链表中移除在数组中存在的节点">
-<meta property='og:description' content="3217.从链表中移除在数组中存在的节点 题目 给你一个整数数组 nums 和一个链表的头节点 head。从链表中移除所有存在于 nums 中的节点后，返回修改后的链表的头节点。\n思路 我的思路 哈希，把数组存到哈希表里，两个指针 pre指向哑节点，cur指向当前节点。遍历链表 当哈希表中有cur.val的时候，把pre的next指向cur的next 最后返回dummy.next\n">
-<meta property='og:url' content='https://lidiudiudiu.github.io/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/'>
+<link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="1578.把绳子变成彩色的最短时间">
+<meta property='og:description' content="1578.把绳子变成彩色的最短时间 Alice 把 n 个气球排列在一根绳子上。给你一个下标从 0 开始的字符串 colors ，其中 colors[i] 是第 i 个气球的颜色。\nAlice 想要把绳子装扮成 五颜六色的 ，且她不希望两个连续的气球涂着相同的颜色，所以她喊来 Bob 帮忙。Bob 可以从绳子上移除一些气球使绳子变成 彩色 。给你一个 下标从 0 开始 的整数数组 neededTime ，其中 neededTime[i] 是 Bob 从绳子上移除第 i 个气球需要的时间（以秒为单位）。\n">
+<meta property='og:url' content='https://lidiudiudiu.github.io/p/1578.%E6%8A%8A%E7%BB%B3%E5%AD%90%E5%8F%98%E6%88%90%E5%BD%A9%E8%89%B2%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/'>
 <meta property='og:site_name' content='李丢丢的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-02T10:05:39&#43;08:00'/><meta property='article:modified_time' content='2025-11-02T10:05:39&#43;08:00'/>
-<meta name="twitter:title" content="2025.11.01 3217.从链表中移除在数组中存在的节点">
-<meta name="twitter:description" content="3217.从链表中移除在数组中存在的节点 题目 给你一个整数数组 nums 和一个链表的头节点 head。从链表中移除所有存在于 nums 中的节点后，返回修改后的链表的头节点。\n思路 我的思路 哈希，把数组存到哈希表里，两个指针 pre指向哑节点，cur指向当前节点。遍历链表 当哈希表中有cur.val的时候，把pre的next指向cur的next 最后返回dummy.next\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-06T11:56:27&#43;08:00'/><meta property='article:modified_time' content='2025-11-06T11:56:27&#43;08:00'/>
+<meta name="twitter:title" content="1578.把绳子变成彩色的最短时间">
+<meta name="twitter:description" content="1578.把绳子变成彩色的最短时间 Alice 把 n 个气球排列在一根绳子上。给你一个下标从 0 开始的字符串 colors ，其中 colors[i] 是第 i 个气球的颜色。\nAlice 想要把绳子装扮成 五颜六色的 ，且她不希望两个连续的气球涂着相同的颜色，所以她喊来 Bob 帮忙。Bob 可以从绳子上移除一些气球使绳子变成 彩色 。给你一个 下标从 0 开始 的整数数组 neededTime ，其中 neededTime[i] 是 Bob 从绳子上移除第 i 个气球需要的时间（以秒为单位）。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
  
@@ -401,35 +401,6 @@
             
                 
                     
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">目录</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#题目">题目</a></li>
-    <li><a href="#思路">思路</a>
-      <ol>
-        <li><a href="#我的思路">我的思路</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
                     
                 
             
@@ -445,7 +416,7 @@
     <div class="article-details">
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/">2025.11.01 3217.从链表中移除在数组中存在的节点</a>
+            <a href="/p/1578.%E6%8A%8A%E7%BB%B3%E5%AD%90%E5%8F%98%E6%88%90%E5%BD%A9%E8%89%B2%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">1578.把绳子变成彩色的最短时间</a>
         </h2>
     
         
@@ -467,7 +438,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2025-11-02</time>
+                <time class="article-time--published">2025-11-06</time>
             </div>
         
 
@@ -486,6 +457,10 @@
                 每日一题
             </a>
         
+            <a href="/categories/%E5%8A%9B%E6%89%A3/" >
+                力扣
+            </a>
+        
     </header>
     
 
@@ -496,42 +471,25 @@
     <section class="article-content">
     
     
-    <h1 id="3217从链表中移除在数组中存在的节点">3217.从链表中移除在数组中存在的节点
-</h1><h2 id="题目">题目
-</h2><p>给你一个整数数组 <code>nums</code> 和一个链表的头节点 <code>head</code>。从链表中<strong>移除</strong>所有存在于 <code>nums</code> 中的节点后，返回修改后的链表的头节点。</p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251102102055956.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251102102055956"
-	
-	
-></p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251102102113116.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251102102113116"
-	
-	
-></p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251102102135684.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251102102135684"
-	
-	
-></p>
+    <h1 id="1578把绳子变成彩色的最短时间">1578.把绳子变成彩色的最短时间
+</h1><p>Alice 把 <code>n</code> 个气球排列在一根绳子上。给你一个下标从 <strong>0</strong> 开始的字符串 <code>colors</code> ，其中 <code>colors[i]</code> 是第 <code>i</code> 个气球的颜色。</p>
+<p>Alice 想要把绳子装扮成 <strong>五颜六色的</strong> ，且她不希望两个连续的气球涂着相同的颜色，所以她喊来 Bob 帮忙。Bob 可以从绳子上移除一些气球使绳子变成 <strong>彩色</strong> 。给你一个 <strong>下标从 0 开始</strong> 的整数数组 <code>neededTime</code> ，其中 <code>neededTime[i]</code> 是 Bob 从绳子上移除第 <code>i</code> 个气球需要的时间（以秒为单位）。</p>
+<p>返回 Bob 使绳子变成 <strong>彩色</strong> 需要的 <strong>最少时间</strong> 。</p>
 <h2 id="思路">思路
-</h2><h3 id="我的思路">我的思路
-</h3><p>哈希，把数组存到哈希表里，两个指针 pre指向哑节点，cur指向当前节点。遍历链表 当哈希表中有cur.val的时候，把pre的next指向cur的next 最后返回dummy.next</p>
+</h2><p><strong>核心思想</strong>：对于连续相同颜色的气球，我们保留移除代价最大的那个，移除其他所有。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>遍历气球数组</li>
+<li>当遇到连续相同颜色时：
+<ul>
+<li>记录当前连续段的最大移除代价</li>
+<li>累加较小的那个代价到结果中</li>
+<li>更新最大代价为当前连续段的最大值</li>
+</ul>
+</li>
+<li>当颜色变化时，重置最大代价</li>
+</ol>
+<p>这样可以在一次遍历中解决问题，时间复杂度 O(n)，空间复杂度 O(1)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -562,44 +520,122 @@
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/**</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">Definition</span> <span class="k">for</span> <span class="n">singly</span><span class="o">-</span><span class="n">linked</span> <span class="n">list</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="k">class</span> <span class="n">ListNode</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>     <span class="n">val</span><span class="p">:</span> <span class="n">number</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>     <span class="n">next</span><span class="p">:</span> <span class="n">ListNode</span> <span class="o">|</span> <span class="n">null</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>     <span class="n">constructor</span><span class="p">(</span><span class="n">val</span><span class="err">?</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span> <span class="n">next</span><span class="err">?</span><span class="p">:</span> <span class="n">ListNode</span> <span class="o">|</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>         <span class="n">this</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">val</span><span class="o">===</span><span class="n">undefined</span> <span class="err">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>         <span class="n">this</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="n">next</span><span class="o">===</span><span class="n">undefined</span> <span class="err">?</span> <span class="n">null</span> <span class="p">:</span> <span class="n">next</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>     <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">modifiedList</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">number</span><span class="p">[],</span> <span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span> <span class="o">|</span> <span class="n">null</span><span class="p">):</span> <span class="n">ListNode</span> <span class="o">|</span> <span class="n">null</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">set</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Set</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">minCost</span><span class="p">(</span><span class="nx">colors</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">neededTime</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 找到连续相同颜色的区间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">maxTime</span> <span class="o">=</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">===</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">maxTime</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">maxTime</span><span class="p">,</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1">// 保留代价最大的，移除其他的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">totalTime</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">-</span> <span class="nx">maxTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">i</span> <span class="o">=</span> <span class="nx">j</span><span class="p">;</span> <span class="c1">// 跳到连续区间的末尾
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">dummy</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">head</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">dummy</span><span class="p">,</span><span class="n">cur</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">cur</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">set</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">val</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">pre</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">pre</span> <span class="o">=</span> <span class="n">cur</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">totalTime</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>遍历过程中一共两种情况 当前元素哈希表里有 删除当前元素 cur移动到下一个位置    没有的话先移动pre，再移动cur‘</p>
-
+</div><p>简洁写法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">minCost</span><span class="p">(</span><span class="nx">colors</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">neededTime</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">maxTime</span> <span class="o">=</span> <span class="nx">neededTime</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 当前气球与前一个相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">totalTime</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">maxTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">maxTime</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">maxTime</span><span class="p">,</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 颜色变化，重置 maxTime
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">maxTime</span> <span class="o">=</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">totalTime</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>贪心</strong></p>
+<p>根据题意可以知道，如果字符串 colors 中有若干相邻的重复颜色，则这些颜色中最多只能保留一个。因此，我们可以采取贪心的策略：在这一系列重复颜色中，我们保留删除成本最高的颜色，并删除其他颜色。这样得到的删除成本一定是最低的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">minCost</span><span class="p">(</span><span class="nx">colors</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">neededTime</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">ch</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">maxValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span> <span class="o">&amp;&amp;</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">ch</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">maxValue</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">maxValue</span><span class="p">,</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">neededTime</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ret</span> <span class="o">+=</span> <span class="nx">sum</span> <span class="o">-</span> <span class="nx">maxValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -662,12 +698,12 @@
             
                 
 <article class="">
-    <a href="/p/1578.%E6%8A%8A%E7%BB%B3%E5%AD%90%E5%8F%98%E6%88%90%E5%BD%A9%E8%89%B2%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">
+    <a href="/p/475.%E5%91%A8%E8%B5%9B/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">1578.把绳子变成彩色的最短时间</h2>
+            <h2 class="article-title">475.周赛</h2>
         </div>
     </a>
 </article>
@@ -688,12 +724,12 @@
             
                 
 <article class="">
-    <a href="/p/2025.10.31-3289.%E6%95%B0%E5%AD%97%E5%B0%8F%E9%95%87%E9%87%8C%E7%9A%84%E6%8D%A3%E8%9B%8B%E9%AC%BC/">
+    <a href="/p/2025.11.01-3217.%E4%BB%8E%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">2025.10.31-3289.数字小镇里的捣蛋鬼</h2>
+            <h2 class="article-title">2025.11.01 3217.从链表中移除在数组中存在的节点</h2>
         </div>
     </a>
 </article>
@@ -701,12 +737,12 @@
             
                 
 <article class="">
-    <a href="/p/475.%E5%91%A8%E8%B5%9B/">
+    <a href="/p/2025.10.31-3289.%E6%95%B0%E5%AD%97%E5%B0%8F%E9%95%87%E9%87%8C%E7%9A%84%E6%8D%A3%E8%9B%8B%E9%AC%BC/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">475.周赛</h2>
+            <h2 class="article-title">2025.10.31-3289.数字小镇里的捣蛋鬼</h2>
         </div>
     </a>
 </article>
