@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="475. 周赛 3731. 找出缺失的元素 给你一个整数数组 nums ，数组由若干 互不相同 的整数组成。\n数组 nums 原本包含了某个范围内的 所有整数 。但现在，其中可能 缺失 部分整数。\n该范围内的 最小 整数和 最大 整数仍然存在于 nums 中。\n">
-<title>475.周赛</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="最大公约数和最小公倍数 最大公约数和最小公倍数定义\n最大公约数定义: 最大公约数:指两个或多个整数共有约数中最大的一个。\n最小公倍数定义: 两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。\n">
+<title>最大公约数和最小公倍数</title>
 
-<link rel='canonical' href='https://lidiudiudiu.github.io/p/475.%E5%91%A8%E8%B5%9B/'>
+<link rel='canonical' href='https://lidiudiudiu.github.io/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="475.周赛">
-<meta property='og:description' content="475. 周赛 3731. 找出缺失的元素 给你一个整数数组 nums ，数组由若干 互不相同 的整数组成。\n数组 nums 原本包含了某个范围内的 所有整数 。但现在，其中可能 缺失 部分整数。\n该范围内的 最小 整数和 最大 整数仍然存在于 nums 中。\n">
-<meta property='og:url' content='https://lidiudiudiu.github.io/p/475.%E5%91%A8%E8%B5%9B/'>
+<link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="最大公约数和最小公倍数">
+<meta property='og:description' content="最大公约数和最小公倍数 最大公约数和最小公倍数定义\n最大公约数定义: 最大公约数:指两个或多个整数共有约数中最大的一个。\n最小公倍数定义: 两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。\n">
+<meta property='og:url' content='https://lidiudiudiu.github.io/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/'>
 <meta property='og:site_name' content='李丢丢的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-06T13:32:14&#43;08:00'/><meta property='article:modified_time' content='2025-11-06T13:32:14&#43;08:00'/>
-<meta name="twitter:title" content="475.周赛">
-<meta name="twitter:description" content="475. 周赛 3731. 找出缺失的元素 给你一个整数数组 nums ，数组由若干 互不相同 的整数组成。\n数组 nums 原本包含了某个范围内的 所有整数 。但现在，其中可能 缺失 部分整数。\n该范围内的 最小 整数和 最大 整数仍然存在于 nums 中。\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-15T17:25:13&#43;08:00'/><meta property='article:modified_time' content='2025-11-15T17:25:13&#43;08:00'/>
+<meta name="twitter:title" content="最大公约数和最小公倍数">
+<meta name="twitter:description" content="最大公约数和最小公倍数 最大公约数和最小公倍数定义\n最大公约数定义: 最大公约数:指两个或多个整数共有约数中最大的一个。\n最小公倍数定义: 两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
  
@@ -419,8 +419,19 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#3731-找出缺失的元素">3731. 找出缺失的元素</a></li>
-    <li><a href="#3733完成所有送货任务的最少时间">3733.完成所有送货任务的最少时间</a></li>
+    <li><a href="#求最大公约数">求最大公约数</a>
+      <ol>
+        <li><a href="#辗转相除法欧几里得算法求">辗转相除法（欧几里得算法）求</a></li>
+        <li><a href="#更相减损法">更相减损法</a></li>
+        <li><a href="#穷举法">穷举法</a></li>
+      </ol>
+    </li>
+    <li><a href="#求最小公倍数">求最小公倍数</a>
+      <ol>
+        <li><a href="#公式">公式</a></li>
+        <li><a href="#穷举法-1">穷举法</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -441,7 +452,7 @@
     <div class="article-details">
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/475.%E5%91%A8%E8%B5%9B/">475.周赛</a>
+            <a href="/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">最大公约数和最小公倍数</a>
         </h2>
     
         
@@ -463,7 +474,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2025-11-06</time>
+                <time class="article-time--published">2025-11-15</time>
             </div>
         
 
@@ -478,10 +489,6 @@
                 算法
             </a>
         
-            <a href="/categories/%E5%8A%9B%E6%89%A3/" >
-                力扣
-            </a>
-        
     </header>
     
 
@@ -492,32 +499,109 @@
     <section class="article-content">
     
     
-    <h1 id="475-周赛">475. 周赛
-</h1><h2 id="3731-找出缺失的元素">3731. 找出缺失的元素
-</h2><p>给你一个整数数组 <code>nums</code> ，数组由若干 <strong>互不相同</strong> 的整数组成。</p>
-<p>数组 <code>nums</code> 原本包含了某个范围内的 <strong>所有整数</strong> 。但现在，其中可能 <strong>缺失</strong> 部分整数。</p>
-<p>该范围内的 <strong>最小</strong> 整数和 <strong>最大</strong> 整数仍然存在于 <code>nums</code> 中。</p>
-<p>返回一个 <strong>有序</strong> 列表，包含该范围内缺失的所有整数，并 <strong>按从小到大排序</strong>。如果没有缺失的整数，返回一个 <strong>空</strong> 列表。</p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251106140208621.png"
+    <h1 id="最大公约数和最小公倍数">最大公约数和最小公倍数
+</h1><p>最大公约数和最小公倍数定义</p>
+<p>最大公约数定义:
+最大公约数:指两个或多个整数共有约数中最大的一个。</p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115173103940.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="image-20251106140208621"
+		alt="image-20251115173103940"
 	
 	
 ></p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251106140215960.png"
+<p>最小公倍数定义:
+两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。</p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115173218061.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="image-20251106140215960"
+		alt="image-20251115173218061"
 	
 	
 ></p>
+<h2 id="求最大公约数">求最大公约数
+</h2><h3 id="辗转相除法欧几里得算法求">辗转相除法（欧几里得算法）求
+</h3><p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115180211081.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251115180211081"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">int</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">a</span> <span class="o">%</span> <span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="nx">b</span> : <span class="kt">gcd</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="o">%</span><span class="nx">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">x</span><span class="p">,</span><span class="nx">int</span> <span class="nx">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">int</span> <span class="nx">z</span><span class="o">=</span><span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">y</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">z</span><span class="o">=</span><span class="nx">x</span><span class="o">%</span><span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">x</span><span class="o">=</span><span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">y</span><span class="o">=</span><span class="nx">z</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="更相减损法">更相减损法
+</h3><p>用较大数减去较小数,再不断用差减减数得到新的差(当差是负数时,就反过来减),不停循环直到减数和差相等为止,此时这个相等的数就是最大公约数。</p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115180519325.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251115180519325"
+	
+	
+></p>
+<p>为什么不断大数减小数，最后两个数相等时，那个数就是最大公约数?</p>
+<p>这个算法的核心基于一个非常重要的数学定理：</p>
+<blockquote>
+<p>如果 a 和 b都是正整数，且 a&gt;=b那么
+gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
+</blockquote>
+<ul>
+<li>因为 d能整除 a和 b，根据整除的性质，d也一定能整除它们的差 a−b</li>
+</ul>
+<p><strong>为什么最后相等时的数就是最大公约数？</strong></p>
+<p><strong>换句话说</strong>：我们通过不断相减，把两个较大的数逐渐变小，但始终保持它们的最大公约数不变，直到两个数变得显而易见（相等），这时它们的值就是我们要找的最大公约数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -535,63 +619,183 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">findMissingElements</span><span class="p">(</span><span class="nx">nums</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span><span class="p">[]</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="mi">150</span><span class="p">,</span><span class="nx">max</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="kr">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;();</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">max</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">min</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">min</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="kr">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">min</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">max</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kr">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span><span class="nx">int</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span><span class="nx">a</span><span class="o">!=</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">a</span><span class="o">=</span><span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">b</span><span class="o">=</span><span class="nx">b</span><span class="o">-</span><span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>把数组存到哈希表里，然后遍历最小值到最大值的区间，如果集合里没有这个数，那这个数就是答案之一。</p>
-<h2 id="3733完成所有送货任务的最少时间">3733.完成所有送货任务的最少时间
-</h2><p>给你两个大小为 2 的整数数组：<code>d = [d1, d2]</code> 和 <code>r = [r1, r2]</code>。</p>
-<p>两架送货无人机负责完成特定数量的送货任务。无人机 <code>i</code> 必须完成 <code>di</code> 次送货。</p>
-<p>每次送货花费 <strong>正好</strong> 一小时，并且在任何给定小时内 <strong>只有一架</strong> 无人机可以送货。</p>
-<p>此外，两架无人机都需要在特定时间间隔进行充电，在此期间它们不能送货。无人机 <code>i</code> 必须每 <code>ri</code> 小时充电一次（即在 <code>ri</code> 的倍数小时进行充电）。</p>
-<p>返回完成所有送货所需的 <strong>最小</strong> 总时间（以小时为单位）的整数。</p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251106145150205.png"
+</div><p>类比辗转相除法来说</p>
+<p>你可能听说过用除法求最大公约数的方法（辗转相除法）：</p>
+<ul>
+<li>用 a除以 b得到余数 r</li>
+<li>那么 gcd⁡(a,b)=gcd⁡(b,r)</li>
+</ul>
+<p>这其实是更相减损术的“加速版”——减法要减很多次才能达到的效果，除法一步就完成了。比如 24−15=9相当于做了一次减法，而 24÷15余 9直接得到同样的效果。</p>
+<p>好的！我们通过具体例子来对比<strong>更相减损术（减法）<strong>和</strong>辗转相除法（除法）</strong>，你就能明白为什么说除法是减法的“加速版”。</p>
+<hr>
+<p>例子一：求 gcd(56, 98)</p>
+<p><strong>更相减损术（减法）</strong></p>
+<ol>
+<li>98−56=42 → (56, 42)</li>
+<li>56−42=14 → (42, 14)</li>
+<li>42−14=28 → (28, 14)</li>
+<li>28−14=14 → (14, 14)</li>
+</ol>
+<p><strong>结果</strong>：gcd = 14
+<strong>步骤数</strong>：4 步减法</p>
+<hr>
+<p><strong>辗转相除法（除法）</strong></p>
+<ol>
+<li>98÷56=1余 42 → (56, 42)</li>
+<li>56÷42=1=1 余 14 → (42, 14)</li>
+<li>42÷14=3 余 0 → 结束</li>
+</ol>
+<p><strong>结果</strong>：gcd = 14
+<strong>步骤数</strong>：3 步除法</p>
+<p>这里看起来步骤差不多，但看下一个例子：</p>
+<hr>
+<p>例子二：求 gcd(100, 7)</p>
+<p>（这种情况：一个大数，一个很小的数）</p>
+<p><strong>更相减损术（减法）</strong></p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115195402134.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="image-20251106145150205"
+		alt="image-20251115195402134"
 	
 	
 ></p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251106145158999.png"
+<p><strong>结果</strong>：gcd = 1
+<strong>步骤数</strong>：18 步减法！非常慢。</p>
+<hr>
+<p><strong>辗转相除法（除法）</strong></p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115195416550.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="image-20251106145158999"
+		alt="image-20251115195416550"
 	
 	
 ></p>
-
+<p><strong>结果</strong>：gcd = 1
+<strong>步骤数</strong>：3 步除法！</p>
+<hr>
+<p>为什么除法是减法的“加速版”？</p>
+<ul>
+<li><strong>减法</strong>：100−7要重复减很多次（14次！）才能让数字小于 7，得到余数 2。</li>
+<li><strong>除法</strong>：100÷7直接算出商 14 和余数 2，<strong>一步完成</strong>了减法要做的 14 次操作。</li>
+</ul>
+<p><strong>本质上</strong>：</p>
+<ul>
+<li>更相减损术：a→a−b（一次只减一个 b）</li>
+<li>辗转相除法：a→a mod b（一次减掉 ⌊a/b⌋个 b）</li>
+</ul>
+<p>所以<strong>除法是批量减法</strong>。</p>
+<hr>
+<p>再看一个例子：gcd(210, 45)</p>
+<ol>
+<li><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115195513077.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251115195513077"
+	
+	
+></li>
+</ol>
+<hr>
+<p>总结</p>
+<ul>
+<li><strong>更相减损术</strong>：容易理解，但数字相差大时效率低。</li>
+<li><strong>辗转相除法</strong>：效率高，因为用除法一步完成多次减法。</li>
+<li><strong>核心原理相同</strong>：gcd⁡(a,b)=gcd⁡(b,a−b)=gcd⁡(b,a mod b)</li>
+</ul>
+<h3 id="穷举法">穷举法
+</h3><p>从其中一个数字开始,依次递减,直到某个数除以两个数的余数都是0,此时这个数就是最大公约数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">x</span><span class="p">,</span><span class="nx">int</span> <span class="nx">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">int</span> <span class="nx">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="nx">t</span><span class="o">=</span><span class="nx">x</span><span class="p">;;</span><span class="nx">t</span><span class="o">--</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">t</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span><span class="o">%</span><span class="nx">t</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="求最小公倍数">求最小公倍数
+</h2><h3 id="公式">公式
+</h3><p>公式:lcm=x*y/gcd</p>
+<p>求两个数x和y的最小公倍数时, 最小公倍数=x*y/最大公约数。</p>
+<h3 id="穷举法-1">穷举法
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">lcm</span><span class="p">(</span><span class="nx">int</span> <span class="nx">x</span><span class="p">,</span><span class="nx">int</span> <span class="nx">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 	<span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">*</span><span class="nx">y</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 	 <span class="nx">int</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span> <span class="o">?</span> <span class="nx">a</span> : <span class="kt">b</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 	 <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 	 <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 	 	<span class="k">if</span><span class="p">(</span><span class="nx">max</span><span class="o">%</span><span class="nx">a</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">max</span><span class="o">%</span><span class="nx">b</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 	 		<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 	 	<span class="nx">max</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -654,6 +858,19 @@
             
                 
 <article class="">
+    <a href="/p/475.%E5%91%A8%E8%B5%9B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">475.周赛</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/3318.-%E8%AE%A1%E7%AE%97%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84-x-sum-i/">
         
         
@@ -673,19 +890,6 @@
 
         <div class="article-details">
             <h2 class="article-title">1578.把绳子变成彩色的最短时间</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">最大公约数和最小公倍数</h2>
         </div>
     </a>
 </article>
