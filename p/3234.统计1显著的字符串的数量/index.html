@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="最大公约数和最小公倍数 最大公约数和最小公倍数定义\n最大公约数定义: 最大公约数:指两个或多个整数共有约数中最大的一个。\n最小公倍数定义: 两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。\n">
-<title>最大公约数和最小公倍数</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="3234.统计1显著的字符串的数量 题目 给你一个二进制字符串 s。\n请你统计并返回其中 1 显著 的 子字符串 的数量。\n如果字符串中 1 的数量 大于或等于 0 的数量的 平方，则认为该字符串是一个 1 显著 的字符串 。\n">
+<title>3234.统计1显著的字符串的数量</title>
 
-<link rel='canonical' href='https://lidiudiudiu.github.io/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/'>
+<link rel='canonical' href='https://lidiudiudiu.github.io/p/3234.%E7%BB%9F%E8%AE%A11%E6%98%BE%E8%91%97%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%95%B0%E9%87%8F/'>
 
-<link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="最大公约数和最小公倍数">
-<meta property='og:description' content="最大公约数和最小公倍数 最大公约数和最小公倍数定义\n最大公约数定义: 最大公约数:指两个或多个整数共有约数中最大的一个。\n最小公倍数定义: 两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。\n">
-<meta property='og:url' content='https://lidiudiudiu.github.io/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/'>
+<link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="3234.统计1显著的字符串的数量">
+<meta property='og:description' content="3234.统计1显著的字符串的数量 题目 给你一个二进制字符串 s。\n请你统计并返回其中 1 显著 的 子字符串 的数量。\n如果字符串中 1 的数量 大于或等于 0 的数量的 平方，则认为该字符串是一个 1 显著 的字符串 。\n">
+<meta property='og:url' content='https://lidiudiudiu.github.io/p/3234.%E7%BB%9F%E8%AE%A11%E6%98%BE%E8%91%97%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%95%B0%E9%87%8F/'>
 <meta property='og:site_name' content='李丢丢的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-15T17:25:13&#43;08:00'/><meta property='article:modified_time' content='2025-11-15T17:25:13&#43;08:00'/>
-<meta name="twitter:title" content="最大公约数和最小公倍数">
-<meta name="twitter:description" content="最大公约数和最小公倍数 最大公约数和最小公倍数定义\n最大公约数定义: 最大公约数:指两个或多个整数共有约数中最大的一个。\n最小公倍数定义: 两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-15T20:51:30&#43;08:00'/><meta property='article:modified_time' content='2025-11-15T20:51:30&#43;08:00'/>
+<meta name="twitter:title" content="3234.统计1显著的字符串的数量">
+<meta name="twitter:description" content="3234.统计1显著的字符串的数量 题目 给你一个二进制字符串 s。\n请你统计并返回其中 1 显著 的 子字符串 的数量。\n如果字符串中 1 的数量 大于或等于 0 的数量的 平方，则认为该字符串是一个 1 显著 的字符串 。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
  
@@ -419,19 +419,9 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#求最大公约数">求最大公约数</a>
-      <ol>
-        <li><a href="#辗转相除法欧几里得算法求">辗转相除法（欧几里得算法）求</a></li>
-        <li><a href="#更相减损法">更相减损法</a></li>
-        <li><a href="#穷举法">穷举法</a></li>
-      </ol>
-    </li>
-    <li><a href="#求最小公倍数">求最小公倍数</a>
-      <ol>
-        <li><a href="#公式">公式</a></li>
-        <li><a href="#穷举法-1">穷举法</a></li>
-      </ol>
-    </li>
+    <li><a href="#题目">题目</a></li>
+    <li><a href="#分析">分析</a></li>
+    <li><a href="#思路">思路</a></li>
   </ol>
 </nav>
         </div>
@@ -452,7 +442,7 @@
     <div class="article-details">
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">最大公约数和最小公倍数</a>
+            <a href="/p/3234.%E7%BB%9F%E8%AE%A11%E6%98%BE%E8%91%97%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%95%B0%E9%87%8F/">3234.统计1显著的字符串的数量</a>
         </h2>
     
         
@@ -489,6 +479,10 @@
                 算法
             </a>
         
+            <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" >
+                每日一题
+            </a>
+        
     </header>
     
 
@@ -499,109 +493,69 @@
     <section class="article-content">
     
     
-    <h1 id="最大公约数和最小公倍数">最大公约数和最小公倍数
-</h1><p>最大公约数和最小公倍数定义</p>
-<p>最大公约数定义:
-最大公约数:指两个或多个整数共有约数中最大的一个。</p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115173103940.png"
+    <h1 id="3234统计1显著的字符串的数量">3234.统计1显著的字符串的数量
+</h1><h2 id="题目">题目
+</h2><p>给你一个二进制字符串 <code>s</code>。</p>
+<p>请你统计并返回其中 <strong>1 显著</strong> 的 子字符串 的数量。</p>
+<p>如果字符串中 1 的数量 <strong>大于或等于</strong> 0 的数量的 <strong>平方</strong>，则认为该字符串是一个 <strong>1 显著</strong> 的字符串 。</p>
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115205652370.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="image-20251115173103940"
+		alt="image-20251115205652370"
 	
 	
 ></p>
-<p>最小公倍数定义:
-两个或多个整数公有的倍数叫做它们的公倍数，其中除0以外最小的一个公倍数就叫做这几个整数的最小公倍数。</p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115173218061.png"
+<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115205706466.png"
 	
 	
 	
 	loading="lazy"
 	
-		alt="image-20251115173218061"
+		alt="image-20251115205706466"
 	
 	
 ></p>
-<h2 id="求最大公约数">求最大公约数
-</h2><h3 id="辗转相除法欧几里得算法求">辗转相除法（欧几里得算法）求
-</h3><p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115180211081.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251115180211081"
-	
-	
-></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">int</span> <span class="nx">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">a</span> <span class="o">%</span> <span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="nx">b</span> : <span class="kt">gcd</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="o">%</span><span class="nx">b</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">x</span><span class="p">,</span><span class="nx">int</span> <span class="nx">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">int</span> <span class="nx">z</span><span class="o">=</span><span class="nx">y</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">y</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">z</span><span class="o">=</span><span class="nx">x</span><span class="o">%</span><span class="nx">y</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">x</span><span class="o">=</span><span class="nx">y</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">y</span><span class="o">=</span><span class="nx">z</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">z</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="更相减损法">更相减损法
-</h3><p>用较大数减去较小数,再不断用差减减数得到新的差(当差是负数时,就反过来减),不停循环直到减数和差相等为止,此时这个相等的数就是最大公约数。</p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115180519325.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251115180519325"
-	
-	
-></p>
-<p>为什么不断大数减小数，最后两个数相等时，那个数就是最大公约数?</p>
-<p>这个算法的核心基于一个非常重要的数学定理：</p>
-<blockquote>
-<p>如果 a 和 b都是正整数，且 a&gt;=b那么
-gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
-</blockquote>
 <ul>
-<li>因为 d能整除 a和 b，根据整除的性质，d也一定能整除它们的差 a−b</li>
+<li><code>1 &lt;= s.length &lt;= 4 * 104</code></li>
+<li><code>s</code> 仅包含字符 <code>'0'</code> 和 <code>'1'</code>。</li>
 </ul>
-<p><strong>为什么最后相等时的数就是最大公约数？</strong></p>
-<p><strong>换句话说</strong>：我们通过不断相减，把两个较大的数逐渐变小，但始终保持它们的最大公约数不变，直到两个数变得显而易见（相等），这时它们的值就是我们要找的最大公约数。</p>
+<p>对于一个长度为 <strong>n</strong> 的字符串，子字符串的总数计算公式为：n(n + 1) / 2</p>
+<p>子字符串由起始位置 <code>i</code> 和结束位置 <code>j</code> 决定，其中 <code>0 ≤ i ≤ j &lt; n</code>：</p>
+<ul>
+<li><strong>长度为 1</strong> 的子字符串：有 <code>n</code> 个</li>
+<li><strong>长度为 2</strong> 的子字符串：有 <code>n-1</code> 个</li>
+<li><strong>长度为 3</strong> 的子字符串：有 <code>n-2</code> 个</li>
+<li>&hellip;</li>
+<li><strong>长度为 n</strong> 的子字符串：有 <code>1</code> 个</li>
+</ul>
+<p>所以总数 = <code>n + (n-1) + (n-2) + ... + 1 = n(n+1)/2</code></p>
+<p>注意区别：</p>
+<ul>
+<li><strong>子字符串 (substring)</strong>：连续字符序列，总数 = <code>n(n+1)/2</code></li>
+<li><strong>子序列 (subsequence)</strong>：可以不连续，总数 = <code>2ⁿ - 1</code>（去掉空序列）</li>
+</ul>
+<h2 id="分析">分析
+</h2><p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251116114531612.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20251116114531612"
+	
+	
+></p>
+<h2 id="思路">思路
+</h2><p>好的我们先从最直观的暴力做法开始</p>
+<p><em>O</em>(<em>n</em>3) 复杂度</p>
+<ol>
+<li>使用两层循环枚举所有子串的起始位置 <code>i</code> 和结束位置 <code>j</code>。</li>
+<li>对于每个子串 <code>s[i..j]</code>，再写一个内层循环统计其中 <code>0</code> 的数量和 <code>1</code> 的数量。</li>
+<li>判断是否满足 <code>cnt1 &gt;= cnt0 * cnt0</code>，满足则计数加一。</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -619,151 +573,68 @@ gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">a</span><span class="p">,</span><span class="nx">int</span> <span class="nx">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span><span class="nx">a</span><span class="o">!=</span><span class="nx">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">a</span><span class="o">=</span><span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="k">else</span>
-</span></span><span class="line"><span class="cl">		<span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">b</span><span class="o">=</span><span class="nx">b</span><span class="o">-</span><span class="nx">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">countSignificantSubstrings</span><span class="p">(</span><span class="nx">s</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 枚举所有子串的起始位置 i
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 枚举所有子串的结束位置 j
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">cnt0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">cnt1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 统计子串 s[i..j] 中 0 和 1 的数量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;=</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">cnt0</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">cnt1</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 判断是否满足 1 显著条件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="nx">cnt1</span> <span class="o">&gt;=</span> <span class="nx">cnt0</span> <span class="o">*</span> <span class="nx">cnt0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 测试示例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">countSignificantSubstrings</span><span class="p">(</span><span class="s2">&#34;000011&#34;</span><span class="p">));</span> <span class="c1">// 输出 5
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>类比辗转相除法来说</p>
-<p>你可能听说过用除法求最大公约数的方法（辗转相除法）：</p>
+</div><hr>
+<p>下面是o(n2)的优化版本</p>
+<p>我们可以在固定起始位置 <code>i</code> 后，用一个循环从 <code>i</code> 扫描到末尾，并动态维护 <code>0</code> 和 <code>1</code> 的计数，这样就不需要对每个子串都重新统计。</p>
 <ul>
-<li>用 a除以 b得到余数 r</li>
-<li>那么 gcd⁡(a,b)=gcd⁡(b,r)</li>
+<li>外层循环：O(n)</li>
+<li>内层循环：O(n)</li>
+<li>总复杂度：O(n2)</li>
 </ul>
-<p>这其实是更相减损术的“加速版”——减法要减很多次才能达到的效果，除法一步就完成了。比如 24−15=9相当于做了一次减法，而 24÷15余 9直接得到同样的效果。</p>
-<p>好的！我们通过具体例子来对比<strong>更相减损术（减法）<strong>和</strong>辗转相除法（除法）</strong>，你就能明白为什么说除法是减法的“加速版”。</p>
-<hr>
-<p>例子一：求 gcd(56, 98)</p>
-<p><strong>更相减损术（减法）</strong></p>
-<ol>
-<li>98−56=42 → (56, 42)</li>
-<li>56−42=14 → (42, 14)</li>
-<li>42−14=28 → (28, 14)</li>
-<li>28−14=14 → (14, 14)</li>
-</ol>
-<p><strong>结果</strong>：gcd = 14
-<strong>步骤数</strong>：4 步减法</p>
-<hr>
-<p><strong>辗转相除法（除法）</strong></p>
-<ol>
-<li>98÷56=1余 42 → (56, 42)</li>
-<li>56÷42=1=1 余 14 → (42, 14)</li>
-<li>42÷14=3 余 0 → 结束</li>
-</ol>
-<p><strong>结果</strong>：gcd = 14
-<strong>步骤数</strong>：3 步除法</p>
-<p>这里看起来步骤差不多，但看下一个例子：</p>
-<hr>
-<p>例子二：求 gcd(100, 7)</p>
-<p>（这种情况：一个大数，一个很小的数）</p>
-<p><strong>更相减损术（减法）</strong></p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115195402134.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251115195402134"
-	
-	
-></p>
-<p><strong>结果</strong>：gcd = 1
-<strong>步骤数</strong>：18 步减法！非常慢。</p>
-<hr>
-<p><strong>辗转相除法（除法）</strong></p>
-<p><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115195416550.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251115195416550"
-	
-	
-></p>
-<p><strong>结果</strong>：gcd = 1
-<strong>步骤数</strong>：3 步除法！</p>
-<hr>
-<p>为什么除法是减法的“加速版”？</p>
-<ul>
-<li><strong>减法</strong>：100−7要重复减很多次（14次！）才能让数字小于 7，得到余数 2。</li>
-<li><strong>除法</strong>：100÷7直接算出商 14 和余数 2，<strong>一步完成</strong>了减法要做的 14 次操作。</li>
-</ul>
-<p><strong>本质上</strong>：</p>
-<ul>
-<li>更相减损术：a→a−b（一次只减一个 b）</li>
-<li>辗转相除法：a→a mod b（一次减掉 ⌊a/b⌋个 b）</li>
-</ul>
-<p>所以<strong>除法是批量减法</strong>。</p>
-<hr>
-<p>再看一个例子：gcd(210, 45)</p>
-<ol>
-<li><img src="https://raw.githubusercontent.com/Lidiudiudiu/image-bed/main/image-20251115195513077.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20251115195513077"
-	
-	
-></li>
-</ol>
-<hr>
-<p>总结</p>
-<ul>
-<li><strong>更相减损术</strong>：容易理解，但数字相差大时效率低。</li>
-<li><strong>辗转相除法</strong>：效率高，因为用除法一步完成多次减法。</li>
-<li><strong>核心原理相同</strong>：gcd⁡(a,b)=gcd⁡(b,a−b)=gcd⁡(b,a mod b)</li>
-</ul>
-<h3 id="穷举法">穷举法
-</h3><p>从其中一个数字开始,依次递减,直到某个数除以两个数的余数都是0,此时这个数就是最大公约数。</p>
 <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">int</span> <span class="nx">x</span><span class="p">,</span><span class="nx">int</span> <span class="nx">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">int</span> <span class="nx">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="nx">t</span><span class="o">=</span><span class="nx">x</span><span class="p">;;</span><span class="nx">t</span><span class="o">--</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">t</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span><span class="o">%</span><span class="nx">t</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="求最小公倍数">求最小公倍数
-</h2><h3 id="公式">公式
-</h3><p>公式:lcm=x*y/gcd</p>
-<p>求两个数x和y的最小公倍数时, 最小公倍数=x*y/最大公约数。</p>
-<h3 id="穷举法-1">穷举法
-</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -778,24 +649,72 @@ gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">int</span> <span class="nx">lcm</span><span class="p">(</span><span class="nx">int</span> <span class="nx">x</span><span class="p">,</span><span class="nx">int</span> <span class="nx">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl"> 	<span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">*</span><span class="nx">y</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 	 <span class="nx">int</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span> <span class="o">?</span> <span class="nx">a</span> : <span class="kt">b</span> <span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 	 <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"> 	 <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> 	 	<span class="k">if</span><span class="p">(</span><span class="nx">max</span><span class="o">%</span><span class="nx">a</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">max</span><span class="o">%</span><span class="nx">b</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"> 	 		<span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 	 	<span class="nx">max</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">countSignificantSubstrings</span><span class="p">(</span><span class="nx">s</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">cnt0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">cnt1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 动态更新计数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">cnt0</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">cnt1</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1">// 判断条件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="nx">cnt1</span> <span class="o">&gt;=</span> <span class="nx">cnt0</span> <span class="o">*</span> <span class="nx">cnt0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 测试示例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">countSignificantSubstrings</span><span class="p">(</span><span class="s2">&#34;000011&#34;</span><span class="p">));</span> <span class="c1">// 输出 5
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><ul>
+<li>外层 <code>i</code> 表示子串起始位置</li>
+<li>内层 <code>j</code> 表示子串结束位置</li>
+<li>在 <code>j</code> 向右移动时，根据新字符更新 <code>cnt0</code> 或 <code>cnt1</code></li>
+<li>每次更新后立即判断条件，满足则计数</li>
+</ul>
+<p>这样避免了内层重复统计，将复杂度从 O(n3 降到了 O(n2)</p>
+<p>枚举子串右端点，分别计算：</p>
+<p>恰好有 0 个 0 的子串有多少个？
+恰好有 1 个 0 的子串有多少个？
+恰好有 2 个 0 的子串有多少个？
+……
+恰好有 根号n 个 0 的子串有多少个？
+记录 s 中的 0 的下标，方便计算子串个数。</p>
+<p>设子串右端点为 r。</p>
+<p>设上一个 0 的下标为 i。</p>
+<p>那么右端点固定为 r 的子串 [i+1,r],[i+2,r],…,[r,r] 都是不包含 0 的，一定是 1 显著子串，这有 r−i 个。</p>
+<p>好的不会 以后再说🤣🤣</p>
+
 </section>
 
 
@@ -858,19 +777,6 @@ gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
             
                 
 <article class="">
-    <a href="/p/3234.%E7%BB%9F%E8%AE%A11%E6%98%BE%E8%91%97%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%95%B0%E9%87%8F/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">3234.统计1显著的字符串的数量</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/2536.%E5%AD%90%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%83%E7%B4%A0-1/">
         
         
@@ -884,12 +790,12 @@ gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
             
                 
 <article class="">
-    <a href="/p/475.%E5%91%A8%E8%B5%9B/">
+    <a href="/p/3318.-%E8%AE%A1%E7%AE%97%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84-x-sum-i/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">475.周赛</h2>
+            <h2 class="article-title">3318. 计算子数组的 x-sum I</h2>
         </div>
     </a>
 </article>
@@ -897,12 +803,25 @@ gcd⁡(a,b)=gcd⁡(a−b,b)。</p>
             
                 
 <article class="">
-    <a href="/p/3318.-%E8%AE%A1%E7%AE%97%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84-x-sum-i/">
+    <a href="/p/1578.%E6%8A%8A%E7%BB%B3%E5%AD%90%E5%8F%98%E6%88%90%E5%BD%A9%E8%89%B2%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">3318. 计算子数组的 x-sum I</h2>
+            <h2 class="article-title">1578.把绳子变成彩色的最短时间</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2025.11.02-2257.%E7%BB%9F%E8%AE%A1%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BF%9D%E5%8D%AB%E7%9A%84%E6%A0%BC%E5%AD%90%E6%95%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2025.11.02 2257.统计网格图中没有被保卫的格子数</h2>
         </div>
     </a>
 </article>
