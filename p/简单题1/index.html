@@ -429,7 +429,9 @@
     <li><a href="#总结map和set的用法">总结map和set的用法</a></li>
     <li><a href="#1534统计好三元组">1534.统计好三元组</a>
       <ol>
-        <li><a href="#方法一暴力-三层循环">方法一暴力 （三层循环）</a></li>
+        <li><a href="#暴力-三层循环">暴力 （三层循环）</a></li>
+        <li><a href="#前缀和">前缀和</a></li>
+        <li><a href="#排序枚举中间三指针">排序+枚举中间+三指针</a></li>
       </ol>
     </li>
   </ol>
@@ -843,7 +845,7 @@
 <li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
 <li><code>0 &lt;= a, b, c &lt;= 1000</code></li>
 </ul>
-<h3 id="方法一暴力-三层循环">方法一暴力 （三层循环）
+<h3 id="暴力-三层循环">暴力 （三层循环）
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -873,6 +875,140 @@
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">cnt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="前缀和">前缀和
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">countGoodTriplets</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">mx</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">arr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">mx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// cnt 数组的前缀和
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">z</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">z</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">l</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">z</span> <span class="o">-</span> <span class="nx">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">z</span> <span class="o">+</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">mx</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">ans</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">s</span><span class="p">[</span><span class="nx">l</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 如果 l &gt; r + 1，s[r + 1] - s[l] 可能是负数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">v</span> <span class="o">&lt;</span> <span class="nx">mx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">v</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">s</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 把 y 加到 cnt 数组中，更新所有受到影响的前缀和
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意求最大值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>  <span class="c1">// ✅ 正确，返回 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span> <span class="c1">// ❌ 错误，返回 NaN
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>好的没看懂放弃</p>
+<h3 id="排序枚举中间三指针">排序+枚举中间+三指针
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">countGoodTriplets</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">idx</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">range</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">sort</span><span class="p">((</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">j</span> <span class="k">of</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span> <span class="o">&amp;&amp;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">left</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">k</span> <span class="k">of</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">k</span> <span class="o">&gt;</span> <span class="nx">j</span> <span class="o">&amp;&amp;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="o">-</span> <span class="nx">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">right</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">k</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">k1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">k2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">left</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="nx">k2</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">right</span><span class="p">[</span><span class="nx">k2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">k2</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="nx">k1</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">right</span><span class="p">[</span><span class="nx">k1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">k1</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">ans</span> <span class="o">+=</span> <span class="nx">k2</span> <span class="o">-</span> <span class="nx">k1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">ans</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -926,6 +1062,19 @@
             
                 
 <article class="">
+    <a href="/p/%E7%AE%80%E5%8D%95%E9%A2%982/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">简单题2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/1437.%E6%98%AF%E5%90%A6%E6%89%80%E6%9C%891%E9%83%BD%E7%9B%B8%E9%9A%94k%E4%B8%AA%E5%85%83%E7%B4%A0/">
         
         
@@ -971,19 +1120,6 @@
 
         <div class="article-details">
             <h2 class="article-title">2536.子矩阵的元素&#43;1</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/475.%E5%91%A8%E8%B5%9B/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">475.周赛</h2>
         </div>
     </a>
 </article>
