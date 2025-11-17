@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1437.是否所有1都相隔k个元素 ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1437.是否所有1都相隔k个元素 题目 给你一个由若干 0 和 1 组成的数组 nums 以及整数 k。如果所有 1 都至少相隔 k 个元素，则返回 true ；否则，返回 false 。\n简单题\n思路和代码 「所有 1 都至少相隔 k 个元素」等价于「任意两个相邻的 1 都至少相隔 k 个元素」，因此我们只需要从左到右遍历数组，并记录上一个 1 出现的位置。\n">
 <title>1437.是否所有1都相隔k个元素</title>
 
 <link rel='canonical' href='https://lidiudiudiu.github.io/p/1437.%E6%98%AF%E5%90%A6%E6%89%80%E6%9C%891%E9%83%BD%E7%9B%B8%E9%9A%94k%E4%B8%AA%E5%85%83%E7%B4%A0/'>
 
 <link rel="stylesheet" href="/scss/style.min.d36e803384d4e04ac64067682918287e95376043007c4d76eba04b79e22b7d19.css"><meta property='og:title' content="1437.是否所有1都相隔k个元素">
-<meta property='og:description' content="1437.是否所有1都相隔k个元素 ">
+<meta property='og:description' content="1437.是否所有1都相隔k个元素 题目 给你一个由若干 0 和 1 组成的数组 nums 以及整数 k。如果所有 1 都至少相隔 k 个元素，则返回 true ；否则，返回 false 。\n简单题\n思路和代码 「所有 1 都至少相隔 k 个元素」等价于「任意两个相邻的 1 都至少相隔 k 个元素」，因此我们只需要从左到右遍历数组，并记录上一个 1 出现的位置。\n">
 <meta property='og:url' content='https://lidiudiudiu.github.io/p/1437.%E6%98%AF%E5%90%A6%E6%89%80%E6%9C%891%E9%83%BD%E7%9B%B8%E9%9A%94k%E4%B8%AA%E5%85%83%E7%B4%A0/'>
 <meta property='og:site_name' content='李丢丢的博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-17T13:47:58&#43;08:00'/><meta property='article:modified_time' content='2025-11-17T13:47:58&#43;08:00'/>
 <meta name="twitter:title" content="1437.是否所有1都相隔k个元素">
-<meta name="twitter:description" content="1437.是否所有1都相隔k个元素 ">
+<meta name="twitter:description" content="1437.是否所有1都相隔k个元素 题目 给你一个由若干 0 和 1 组成的数组 nums 以及整数 k。如果所有 1 都至少相隔 k 个元素，则返回 true ；否则，返回 false 。\n简单题\n思路和代码 「所有 1 都至少相隔 k 个元素」等价于「任意两个相邻的 1 都至少相隔 k 个元素」，因此我们只需要从左到右遍历数组，并记录上一个 1 出现的位置。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
  
@@ -401,6 +401,31 @@
             
                 
                     
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#题目">题目</a></li>
+    <li><a href="#思路和代码">思路和代码</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
                     
                 
             
@@ -468,7 +493,80 @@
     
     
     <h1 id="1437是否所有1都相隔k个元素">1437.是否所有1都相隔k个元素
-</h1>
+</h1><h2 id="题目">题目
+</h2><p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的数组 <code>nums</code> 以及整数 <code>k</code>。如果所有 <code>1</code> 都至少相隔 <code>k</code> 个元素，则返回 true ；否则，返回 <code>false</code> 。</p>
+<p>简单题</p>
+<h2 id="思路和代码">思路和代码
+</h2><p>「所有 1 都至少相隔 k 个元素」等价于「任意两个相邻的 1 都至少相隔 k 个元素」，因此我们只需要从左到右遍历数组，并记录上一个 1 出现的位置。</p>
+<p>在遍历的过程中，如果我们找到了一个新的 1，就需要判断其与上一个 1 之间是否至少相隔 k 个元素。如果不满足要求，那么直接返回 False 作为答案，否则继续进行遍历。</p>
+<p>在遍历完成之后即可返回 True 作为答案。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">kLengthApart</span><span class="p">(</span><span class="nx">nums</span>: <span class="kt">number</span><span class="p">[],</span> <span class="nx">k</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">prev</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">prev</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">-</span> <span class="nx">prev</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">prev</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于第一个元素使用prev记录一下，判断得时候判断一下是不是第一个元素即可</p>
+<p>或者第一个元素取一个小值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">kLengthApart</span><span class="p">(</span><span class="nx">nums</span>: <span class="kt">number</span><span class="p">[],</span> <span class="nx">k</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">last1</span> <span class="o">=</span> <span class="o">-</span><span class="kc">Infinity</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nx">i</span> <span class="o">-</span> <span class="nx">last1</span> <span class="o">&lt;=</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">last1</span> <span class="o">=</span> <span class="nx">i</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
